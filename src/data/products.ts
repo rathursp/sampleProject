@@ -10,6 +10,7 @@ export interface Product {
   inStock: boolean;
   featured?: boolean;
   stock?: number;   // add this
+  popular?: boolean;
 }
 
 export interface Category {
@@ -40,6 +41,7 @@ export const products: Product[] = [
     description: "Farm-fresh red tomatoes, perfect for curries and salads.",
     inStock: true,
     featured: true,
+    popular: true
   },
   {
     id: "2",
@@ -95,6 +97,7 @@ export const products: Product[] = [
     description: "Premium Alphonso mangoes, king of fruits.",
     inStock: true,
     featured: true,
+    popular: true
   },
   {
     id: "7",
@@ -127,6 +130,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&h=400&fit=crop",
     description: "Fresh cottage cheese, soft and creamy.",
     inStock: true,
+    popular: true
   },
   {
     id: "10",
@@ -149,6 +153,7 @@ export const products: Product[] = [
     description: "Premium aged basmati rice, long grain.",
     inStock: true,
     featured: true,
+    popular: true
   },
   {
     id: "12",

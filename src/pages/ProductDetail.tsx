@@ -28,7 +28,7 @@ export default function ProductDetail() {
   };
 
   return (
-    <section className="mx-auto max-w-5xl px-4 py-10 md:py-16">
+    <section className="mx-auto max-w-5xl px-4 py-10 pb-24 md:py-16">
       <div className="grid gap-8 md:grid-cols-2">
         {/* Image */}
         <div className="overflow-hidden rounded-2xl bg-muted">
@@ -76,15 +76,17 @@ export default function ProductDetail() {
             </Button>
           </div>
 
-          {/* Add button */}
-          <Button
-            size="lg"
-            className="w-full text-base md:max-w-sm"
-            disabled={!product.inStock}
-            onClick={handleAdd}
-          >
-            Add {quantity} {product.unit} — ₹{totalPrice}
-          </Button>
+          {/* Sticky Mobile Add To Cart */}
+          <div className="fixed bottom-0 left-0 right-0 z-50 border-t bg-white p-3 md:hidden">
+            <Button
+              size="lg"
+              className="w-full text-base"
+              disabled={!product.inStock}
+              onClick={handleAdd}
+            >
+              Add {quantity} {product.unit} — ₹{totalPrice}
+            </Button>
+          </div>
         </div>
       </div>
     </section>

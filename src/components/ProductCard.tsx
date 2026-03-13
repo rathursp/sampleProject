@@ -26,12 +26,12 @@ export function ProductCard({ product }: ProductCardProps) {
     <motion.div
       initial={{ opacity: 0, scale: 0.96 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="group relative rounded-xl border bg-white p-2 transition-all duration-200 hover:shadow-md hover:-translate-y-1"
+      className="group relative rounded-xl border bg-white p-1.5 transition-all duration-200 hover:shadow-md hover:-translate-y-1"
     >
       {/* Product Image */}
       <Link
         to={`/product/${product.id}`}
-        className="relative h-[150px] overflow-hidden bg-white flex items-center justify-center rounded-lg"
+        className="relative h-[115px] sm:h-[140px] overflow-hidden bg-white flex items-center justify-center rounded-lg"
       >
         <img
           src={product.image}
@@ -83,7 +83,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </span>
 
         {/* Product name */}
-        <h3 className="text-xs sm:text-sm font-medium leading-tight text-card-foreground line-clamp-2 min-h-[28px]">
+        <h3 className="text-xs sm:text-sm font-medium leading-tight text-card-foreground line-clamp-2 min-h-[5px]">
           {product.stock && product.stock <= 5 && (
           <span className="text-[10px] text-red-500 font-medium">
             Only {product.stock} left
