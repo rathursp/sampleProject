@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+
+    --background: 0 0% 99%;
+    --foreground: 340 20% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 20% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 20% 12%;
+
+    --primary: 340 82% 52%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 340 40% 96%;
+    --secondary-foreground: 340 20% 12%;
+
+    --muted: 340 20% 95%;
+    --muted-foreground: 340 10% 45%;
+
+    --accent: 24 90% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 340 15% 90%;
+    --input: 340 15% 90%;
+    --ring: 340 82% 52%;
+
+    --radius: 0.75rem;
+
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 340 82% 52%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 340 40% 96%;
+    --sidebar-accent-foreground: 340 20% 12%;
+    --sidebar-border: 340 15% 90%;
+    --sidebar-ring: 340 82% 52%;
+  }
+
+  .dark {
+    --background: 340 15% 6%;
+    --foreground: 340 10% 95%;
+    --card: 340 15% 8%;
+    --card-foreground: 340 10% 95%;
+    --popover: 340 15% 8%;
+    --popover-foreground: 340 10% 95%;
+    --primary: 340 82% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 340 20% 15%;
+    --secondary-foreground: 340 10% 95%;
+    --muted: 340 15% 15%;
+    --muted-foreground: 340 10% 60%;
+    --accent: 24 90% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 340 15% 18%;
+    --input: 340 15% 18%;
+    --ring: 340 82% 58%;
+    --sidebar-background: 340 15% 8%;
+    --sidebar-foreground: 340 10% 90%;
+    --sidebar-primary: 340 82% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 340 20% 15%;
+    --sidebar-accent-foreground: 340 10% 90%;
+    --sidebar-border: 340 15% 18%;
+    --sidebar-ring: 340 82% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+}
