@@ -84,7 +84,11 @@ export function ProductCard({ product }: ProductCardProps) {
 
         {/* Product name */}
         <h3 className="text-xs sm:text-sm font-medium leading-tight text-card-foreground line-clamp-2 min-h-[28px]">
-          {product.name}
+          {product.stock && product.stock <= 5 && (
+          <span className="text-[10px] text-red-500 font-medium">
+            Only {product.stock} left
+          </span>
+          )}
         </h3>
 
         {/* Price + quantity control */}

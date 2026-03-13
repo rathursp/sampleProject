@@ -9,6 +9,7 @@ export interface Product {
   description: string;
   inStock: boolean;
   featured?: boolean;
+  stock?: number;   // add this
 }
 
 export interface Category {
@@ -115,6 +116,7 @@ export const products: Product[] = [
     description: "Fresh full cream milk, pasteurized and pure.",
     inStock: true,
     featured: true,
+    stock: 4
   },
   {
     id: "9",
