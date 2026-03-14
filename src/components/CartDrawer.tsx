@@ -1,4 +1,4 @@
-import { ShoppingBag, Minus, Plus, Trash2, MessageCircle } from "lucide-react";
+import { ShoppingBag, Minus, Plus, Trash2, MessageCircle, ArrowLeft } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
@@ -24,10 +24,17 @@ export function CartDrawer() {
   return (
     <Sheet open={isCartOpen} onOpenChange={setIsCartOpen}>
       <SheetContent className="flex w-full flex-col sm:max-w-md">
-        <SheetHeader>
+        <SheetHeader className="flex flex-row items-center gap-3 space-y-0">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 shrink-0"
+            onClick={() => setIsCartOpen(false)}
+          >
+            <ArrowLeft className="h-5 w-5" />
+          </Button>
           <SheetTitle className="flex items-center gap-2 font-heading">
-            <ShoppingBag className="h-5 w-5 text-primary" />
-            Your Cart ({totalItems})
+            Cart ({totalItems})
           </SheetTitle>
         </SheetHeader>
 

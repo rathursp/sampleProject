@@ -14,7 +14,7 @@ export function CartTooltip() {
   useEffect(() => {
     if (totalItems > prevCount && !isCartOpen) {
       setVisible(true);
-      const t = setTimeout(() => setVisible(false), 4000);
+      const t = setTimeout(() => setVisible(false), 2000);
       return () => clearTimeout(t);
     }
     setPrevCount(totalItems);
