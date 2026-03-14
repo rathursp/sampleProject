@@ -327,4 +327,7 @@ export const products: Product[] = [
   inStock: true,
 }
   
-];
+].map((product) => ({
+  ...product,
+  featured: product.category === "vegetables" ? true : product.featured
+}));
