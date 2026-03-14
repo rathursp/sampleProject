@@ -1,4 +1,3 @@
-
 import { Plus, Minus } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Product } from "@/data/products";
@@ -17,8 +16,7 @@ export function ProductCard({ product }: ProductCardProps) {
 
   const discount = product.originalPrice
     ? Math.round(
-        ((product.originalPrice - product.price) / product.originalPrice) *
-          100
+        ((product.originalPrice - product.price) / product.originalPrice) * 100
       )
     : 0;
 
@@ -47,7 +45,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </Badge>
         )}
 
-        {/* Out of stock overlay */}
+        {/* Out of stock */}
         {!product.inStock && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/40">
             <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold">
@@ -56,7 +54,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </div>
         )}
 
-        {/* ADD button inside image */}
+        {/* ADD Button */}
         {product.inStock && !cartItem && (
           <div className="absolute bottom-2 right-2">
             <motion.div whileTap={{ scale: 0.9 }} whileHover={{ scale: 1.05 }}>
@@ -76,36 +74,42 @@ export function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       {/* Product Info */}
-      <div className="flex flex-1 flex-col gap-1 p-2">
-        {/* Unit */}
-        <span className="text-[10px] text-gray-400 uppercase">
-          {product.unit}
-        </span>
+      <div className="flex flex-col gap-1 p-2">
 
-        {/* Product name */}
-        <h3 className="text-xs sm:text-sm font-medium leading-tight text-card-foreground line-clamp-2 min-h-[5px]">
-          {product.stock && product.stock <= 5 && (
+        {/* UNIT */}
+        <p className="text-[11px] font-medium uppercase text-gray-500">
+          {product.unit}
+        </p>
+
+        {/* PRODUCT NAME */}
+        <h3 className="text-[14px] font-semibold leading-snug text-gray-900 line-clamp-2">
+          {product.name}
+        </h3>
+
+        {/* STOCK WARNING */}
+        {product.stock && product.stock <= 5 && (
           <span className="text-[10px] text-red-500 font-medium">
             Only {product.stock} left
           </span>
-          )}
-        </h3>
+        )}
 
-        {/* Price + quantity control */}
+        {/* PRICE + CART CONTROL */}
         <div className="mt-auto flex items-center justify-between pt-1">
+
+          {/* PRICE */}
           <div className="flex flex-col">
-            <span className="text-sm sm:text-base font-bold text-black">
+            <span className="text-[16px] font-bold text-black">
               ₹{product.price}
             </span>
 
             {product.originalPrice && (
-              <span className="text-[10px] sm:text-xs text-gray-400 line-through">
+              <span className="text-[12px] text-gray-400 line-through">
                 ₹{product.originalPrice}
               </span>
             )}
           </div>
 
-          {/* Quantity controls */}
+          {/* QUANTITY CONTROL */}
           {product.inStock && cartItem && (
             <div className="flex items-center gap-1 rounded-md border bg-secondary px-1 py-0.5">
               <Button
@@ -135,6 +139,7 @@ export function ProductCard({ product }: ProductCardProps) {
               </Button>
             </div>
           )}
+
         </div>
       </div>
     </motion.div>

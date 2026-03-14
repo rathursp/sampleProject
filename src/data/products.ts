@@ -9,7 +9,7 @@ export interface Product {
   description: string;
   inStock: boolean;
   featured?: boolean;
-  stock?: number;   // add this
+  stock?: number;
   popular?: boolean;
 }
 
@@ -30,304 +30,295 @@ export const categories: Category[] = [
 ];
 
 export const products: Product[] = [
-  {
-    id: "1",
-    name: "Fresh Tomatoes",
-    category: "vegetables",
-    price: 25,
-    originalPrice: 40,
-    unit: "500g",
-    image: "https://69b3e2afd5fa7152051c7e21.imgix.net/Screenshot%202026-03-13%20154445.png?w=400&h=400&fit=crop",
-    description: "Farm-fresh red tomatoes, perfect for curries and salads.",
-    inStock: true,
-    featured: true,
-    popular: true
-  },
-  {
-    id: "2",
-    name: "Green Spinach",
-    category: "vegetables",
-    price: 25,
-    unit: "250g",
-    image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?w=400&h=400&fit=crop",
-    description: "Fresh organic spinach leaves, rich in iron.",
-    inStock: true,
-    featured: true,
-  },
-  {
-    id: "3",
-    name: "Onions",
-    category: "vegetables",
-    price: 35,
-    originalPrice: 45,
-    unit: "1kg",
-    image: "https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?w=400&h=400&fit=crop",
-    description: "Premium quality onions for everyday cooking.",
-    inStock: true,
-  },
-  {
-    id: "4",
-    name: "Potatoes",
-    category: "vegetables",
-    price: 28,
-    unit: "1kg",
-    image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465257/potatoes-scaled_apgoq1.jpg",
-    description: "Fresh potatoes, ideal for all types of dishes.",
-    inStock: true,
-  },
-  {
-    id: "5",
-    name: "Fresh Bananas",
-    category: "fruits",
-    price: 40,
-    unit: "1 dozen",
-    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=400&fit=crop",
-    description: "Ripe yellow bananas, naturally sweet.",
-    inStock: true,
-    featured: true,
-  },
-  {
-    id: "6",
-    name: "Alphonso Mangoes",
-    category: "fruits",
-    price: 250,
-    originalPrice: 320,
-    unit: "1kg",
-    image: "https://images.unsplash.com/photo-1553279768-865429fa0078?w=400&h=400&fit=crop",
-    description: "Premium Alphonso mangoes, king of fruits.",
-    inStock: true,
-    featured: true,
-    popular: true
-  },
-  {
-    id: "7",
-    name: "Red Apples",
-    category: "fruits",
-    price: 150,
-    unit: "1kg",
-    image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&h=400&fit=crop",
-    description: "Crispy and juicy red apples from Shimla.",
-    inStock: true,
-  },
-  {
-    id: "8",
-    name: "Full Cream Milk",
-    category: "dairy",
-    price: 60,
-    unit: "1L",
-    image: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=400&fit=crop",
-    description: "Fresh full cream milk, pasteurized and pure.",
-    inStock: true,
-    featured: true,
-    stock: 4
-  },
-  {
-    id: "9",
-    name: "Paneer",
-    category: "dairy",
-    price: 90,
-    unit: "200g",
-    image: "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=400&h=400&fit=crop",
-    description: "Fresh cottage cheese, soft and creamy.",
-    inStock: true,
-    popular: true
-  },
-  {
-    id: "10",
-    name: "Curd",
-    category: "dairy",
-    price: 45,
-    unit: "400g",
-    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop",
-    description: "Thick and creamy homestyle curd.",
-    inStock: true,
-  },
-  {
-    id: "11",
-    name: "Basmati Rice",
-    category: "staples",
-    price: 180,
-    originalPrice: 220,
-    unit: "1kg",
-    image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop",
-    description: "Premium aged basmati rice, long grain.",
-    inStock: true,
-    featured: true,
-    popular: true
-  },
-  {
-    id: "12",
-    name: "Wheat Flour (Atta)",
-    category: "staples",
-    price: 55,
-    unit: "1kg",
-    image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?w=400&h=400&fit=crop",
-    description: "Whole wheat flour for soft rotis.",
-    inStock: true,
-  },
-  {
-    id: "13",
-    name: "Masala Chips",
-    category: "snacks",
-    price: 20,
-    unit: "100g",
-    image: "https://images.unsplash.com/photo-1566478989037-eec170784d0b?w=400&h=400&fit=crop",
-    description: "Crunchy masala flavored potato chips.",
-    inStock: true,
-  },
-  {
-    id: "14",
-    name: "Mixed Namkeen",
-    category: "snacks",
-    price: 35,
-    unit: "200g",
-    image: "https://images.unsplash.com/photo-1599490659213-e2b9527b711e?w=400&h=400&fit=crop",
-    description: "Traditional mixed namkeen snack.",
-    inStock: false,
-  },
-  {
-    id: "15",
-    name: "Mango Juice",
-    category: "beverages",
-    price: 45,
-    unit: "1L",
-    image: "https://images.unsplash.com/photo-1546173159-315724a31696?w=400&h=400&fit=crop",
-    description: "Pure mango juice, no added preservatives.",
-    inStock: true,
-  },
-  {
-    id: "16",
-    name: "Green Capsicum",
-    category: "vegetables",
-    price: 35,
-    unit: "250g",
-    image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773464596/cap_wsipzy.png",
-    description: "Fresh green bell peppers, crunchy and flavorful.",
-    inStock: true,
-  },
 
-  {
-  id: "17",
+/* Vegetables */
+
+{
+  name: "Fresh Tomatoes",
+  category: "vegetables",
+  price: 25,
+  originalPrice: 40,
+  unit: "500g",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/250px-Tomato_je_c1cuys.jpg",
+  description: "Farm-fresh red tomatoes, perfect for curries and salads.",
+  inStock: true,
+  featured: true
+},
+{
+  name: "Green Spinach",
+  category: "vegetables",
+  price: 25,
+  unit: "250g",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/20-palak-seeds-ronofic-original-imah2ymwrcnybxg3_wgt1oa.jpg",
+  description: "Fresh organic spinach leaves, rich in iron.",
+  inStock: true
+},
+{
+  name: "Onions",
+  category: "vegetables",
+  price: 35,
+  originalPrice: 45,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/df54c034-a747-4f00-81ce-47191ab4972c.9efd669f6daffd19ffaf32e270ef7598_l0qyns.jpg",
+  description: "Premium quality onions for everyday cooking.",
+  inStock: true
+},
+{
+  name: "Potatoes",
+  category: "vegetables",
+  price: 28,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465257/potatoes-scaled_apgoq1.jpg",
+  description: "Fresh potatoes, ideal for all types of dishes.",
+  inStock: true
+},
+{
+  name: "Green Capsicum",
+  category: "vegetables",
+  price: 35,
+  unit: "250g",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773464596/cap_wsipzy.png",
+  description: "Fresh green bell peppers, crunchy and flavorful.",
+  inStock: true
+},
+{
   name: "Cauliflower",
   category: "vegetables",
   price: 40,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773466236/Chou-fleur_02_q3jane.jpg",
-  description: "Fresh farm cauliflower, perfect for curries, sabzi and healthy home cooking.",
-  inStock: true,
+  description: "Fresh farm cauliflower, perfect for curries and sabzi.",
+  inStock: true
 },
 {
-  id: "18",
   name: "Cabbage",
   category: "vegetables",
   price: 22,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465852/Freshpoint-green-cabbage_o6lnvg.jpg",
-  description: "Crisp and fresh cabbage, ideal for salads, stir fry and nutritious meals.",
-  inStock: true,
+  description: "Crisp and fresh cabbage, ideal for salads and stir fry.",
+  inStock: true
 },
 {
-  id: "19",
   name: "Green Peas (Matar)",
   category: "vegetables",
   price: 30,
   unit: "1kg",
-  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465906/Artboard_1_copy_grande_nzpjv5.jpg",
-  description: "Sweet and tender green peas, perfect for pulao, curry and winter dishes.",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/Green-Peas_cjbnl1.jpg",
+  description: "Sweet and tender green peas perfect for pulao and curry.",
   inStock: true,
+  popular: true
 },
 {
-  id: "20",
   name: "Green Chilli",
   category: "vegetables",
   price: 35,
   unit: "250g",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465906/Artboard_1_copy_grande_nzpjv5.jpg",
-  description: "Fresh green chillies that add the perfect spicy kick to your meals.",
-  inStock: true,
+  description: "Fresh green chillies adding perfect spice to meals.",
+  inStock: true
 },
 {
-  id: "21",
   name: "Garlic",
   category: "vegetables",
   price: 40,
   unit: "250g",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465918/garlic_twlb3z.jpg",
-  description: "Aromatic fresh garlic cloves, essential for rich flavor in Indian cooking.",
-  inStock: true,
+  description: "Aromatic garlic cloves essential for Indian cooking.",
+  inStock: true
 },
 {
-  id: "22",
   name: "Ginger",
   category: "vegetables",
   price: 30,
   unit: "250g",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465931/ginger-80e324d-scaled_fzdona.jpg",
-  description: "Fresh ginger roots with strong aroma, great for tea, curries and immunity.",
-  inStock: true,
+  description: "Fresh ginger roots great for tea and curries.",
+  inStock: true
 },
 {
-  id: "23",
   name: "Beetroot",
   category: "vegetables",
   price: 40,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465953/beetroot_mbtqg3.jpg",
-  description: "Healthy and fresh beetroot packed with nutrients, perfect for salads and juices.",
-  inStock: true,
+  description: "Healthy beetroot perfect for juices and salads.",
+  inStock: true
 },
 {
-  id: "24",
   name: "Lemon",
   category: "vegetables",
   price: 15,
   unit: "2pcs",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465981/PXL_20250116_1607549042_rpsylo.jpg",
-  description: "Juicy fresh lemons, perfect for refreshing drinks, salads and cooking.",
-  inStock: true,
+  description: "Juicy lemons for refreshing drinks and cooking.",
+  inStock: true
 },
 {
-  id: "25",
   name: "Bottle Gourd (Lauki)",
   category: "vegetables",
   price: 40,
   unit: "1pc",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773466007/1524_yup6kf.jpg",
-  description: "Fresh and tender bottle gourd, perfect for light healthy home meals.",
-  inStock: true,
+  description: "Tender bottle gourd perfect for healthy meals.",
+  inStock: true
 },
 {
-  id: "26",
-  name: "Potato",
-  category: "vegetables",
-  price: 14,
-  unit: "1kg",
-  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773466029/2015_o53qbj.png",
-  description: "Farm fresh potatoes, ideal for curries, fries and everyday cooking.",
-  inStock: true,
-},
-{
-  id: "27",
   name: "Brinjal (Baingan)",
   category: "vegetables",
   price: 50,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773466049/round_eggplant_800x_ddqgtf.png",
-  description: "Fresh brinjal with smooth texture, perfect for bharta, curry and fry dishes.",
-  inStock: true,
+  description: "Fresh brinjal perfect for bharta and curry dishes.",
+  inStock: true
 },
 {
-  id: "28",
   name: "Cucumber",
   category: "vegetables",
   price: 50,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773466071/Cucumber_yzbwtt.jpg",
-  description: "Fresh and crunchy cucumbers, perfect for salads, raita and healthy snacks.",
+  description: "Crunchy cucumbers perfect for salads and raita.",
+  inStock: true
+},
+
+/* Fruits */
+
+{
+  name: "Shimla Apple",
+  category: "fruits",
+  price: 180,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490343/WhatsApp-Image-2022-01-11-at-16.53.57-1_rlxs3j.jpg",
+  description: "Premium Shimla apples known for crisp texture.",
   inStock: true,
+  popular: true
+},
+{
+  name: "Pineapple",
+  category: "fruits",
+  price: 50,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490370/71_qAJehpkL_djbgag.jpg",
+  description: "Fresh tropical pineapple perfect for juices.",
+  inStock: true
+},
+{
+  name: "Pomegranate",
+  category: "fruits",
+  price: 210,
+  unit: "1kg",
+  image: "https://images.unsplash.com/photo-1541344999736-83eca272f6fc?w=400&h=400&fit=crop",
+  description: "Sweet pomegranates packed with antioxidants.",
+  inStock: true,
+  popular: true
+},
+{
+  name: "Chiniya Banana",
+  category: "fruits",
+  price: 70,
+  unit: "13pcs",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/banana-1_qryzdr.jpg",
+  description: "Small sweet chiniya bananas.",
+  inStock: true,
+  popular: true
+},
+{
+  name: "Kiwi",
+  category: "fruits",
+  price: 75,
+  unit: "3pcs",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490473/330px-Kiwi__28Actinidia_chinensis_29_1_Luc_Viatour_qbolui.jpg",
+  description: "Vitamin C rich kiwi fruits.",
+  inStock: true,
+  popular: true
+},
+{
+  name: "Papaya",
+  category: "fruits",
+  price: 60,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490522/330px-Carica_papaya_dsc07806_hs8z2j.jpg",
+  description: "Ripe nutritious papaya.",
+  inStock: true,
+  popular: true
+},
+{
+  name: "Singapuri Banana",
+  category: "fruits",
+  price: 80,
+  unit: "13pcs",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490635/42E9as7NaTaAi4A6JcuFwG-1200-80_wq8lbp.jpg",
+  description: "Fresh Singapuri bananas.",
+  inStock: true
+},
+{
+  name: "Imported Guava",
+  category: "fruits",
+  price: 150,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/Imported-Guava_kp7rjf.jpg",
+  description: "Premium imported guava.",
+  inStock: true
+},
+{
+  name: "Strawberry",
+  category: "fruits",
+  price: 140,
+  unit: "200g",
+  image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=400&fit=crop",
+  description: "Fresh strawberries for desserts.",
+  inStock: true,
+  popular: true
+},
+{
+  name: "Grapes",
+  category: "fruits",
+  price: 160,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490715/598fa4dc3131dff06c11acffafcc0e6a_dalfya.jpg",
+  description: "Sweet juicy grapes.",
+  inStock: true
+},
+{
+  name: "Watermelon",
+  category: "fruits",
+  price: 85,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/watermeloen_2_eu3c0h.jpg",
+  description: "Refreshing watermelon.",
+  inStock: true
+},
+{
+  name: "Fuji Apple",
+  category: "fruits",
+  price: 290,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490833/FujiApples4pieces_1_spnh7x.png",
+  description: "Premium Fuji apples.",
+  inStock: true
+},
+{
+  name: "Kinnaur Apple",
+  category: "fruits",
+  price: 220,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490865/images_6cfaa187-464d-40c5-8510-4c47e4cc9994_201x_cses4h.jpg",
+  description: "Famous Himachal Kinnaur apples.",
+  inStock: true
+},
+{
+  name: "Orange",
+  category: "fruits",
+  price: 100,
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490919/Tangerine-SpotlessFruitsIndia_1024x1024_n3d2oy.png",
+  description: "Fresh juicy oranges.",
+  inStock: true
 }
-  
+
 ].map((product) => ({
   ...product,
+  id: crypto.randomUUID(),
   featured: product.category === "vegetables" ? true : product.featured
 }));
