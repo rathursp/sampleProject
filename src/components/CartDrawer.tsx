@@ -125,10 +125,10 @@ export function CartDrawer() {
                 size="lg"
                 asChild
               >
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                {/* <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-4 w-4" />
                   Order via WhatsApp
-                </a>
+                </a> */}
               </Button>
             </div>
           </>

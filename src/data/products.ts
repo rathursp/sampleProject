@@ -49,7 +49,7 @@ export const products: Product[] = [
   category: "vegetables",
   price: 25,
   unit: "250g",
-  image: "https://res.cloudinary.com/dkdqid09e/image/upload/20-palak-seeds-ronofic-original-imah2ymwrcnybxg3_wgt1oa.jpg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/136-500x500_f17b4p.jpg",
   description: "Fresh organic spinach leaves, rich in iron.",
   inStock: true
 },

@@ -1,5 +1,5 @@
-import { useParams, Link } from "react-router-dom";
-import { useState } from "react";
+import { useParams, Link, useLocation } from "react-router-dom";
+import { useState,useEffect } from "react";
 import { Minus, Plus, ChevronRight } from "lucide-react";
 import { products } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
@@ -7,11 +7,13 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 
+
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
   const { addToCart, items, updateQuantity } = useCart();
   const cartItem = items.find((i) => i.product.id === id);
+  const location = useLocation();
 
   if (!product) {
     return (
@@ -30,6 +32,14 @@ export default function ProductDetail() {
   const handleAdd = () => {
     addToCart(product);
   };
+
+    useEffect(() => {
+    document.documentElement.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant"  // Instant scroll, no animation
+    });
+  }, [location.pathname]);  // Triggers on route path change
 
   return (
     <section className="mx-auto max-w-5xl px-3 py-4 sm:px-4 sm:py-8 md:py-12">
