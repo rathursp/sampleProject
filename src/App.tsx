@@ -1,3 +1,4 @@
+
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -7,7 +8,7 @@ import { CartProvider } from "@/contexts/CartContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
-import { CartTooltip } from "@/components/CartTooltip";
+import { CartBottomBar } from "@/components/CartBottomBar";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
 import Checkout from "./pages/Checkout";
@@ -25,7 +26,7 @@ const App = () => (
         <CartProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1">
+            <main className="flex-1 pb-16">
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/products" element={<Products />} />
@@ -36,7 +37,7 @@ const App = () => (
             </main>
             <Footer />
             <CartDrawer />
-            <CartTooltip />
+            <CartBottomBar />
           </div>
         </CartProvider>
       </BrowserRouter>

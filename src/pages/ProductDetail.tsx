@@ -12,7 +12,7 @@ export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
   const product = products.find((p) => p.id === id);
   const { addToCart, items, updateQuantity } = useCart();
-  const cartItem = items.find((i) => i.product.id === id);
+  const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
   const location = useLocation();
 
   if (!product) {
@@ -23,14 +23,23 @@ export default function ProductDetail() {
     );
   }
 
-  const discount = product.originalPrice
-    ? Math.round(
-        ((product.originalPrice - product.price) / product.originalPrice) * 100
-      )
-    : 0;
+  const variants = product.variants;
+  const activeVariant = variants?.[selectedVariantIdx];
+  const displayPrice = activeVariant?.price ?? product.price;
+  const displayOriginalPrice = activeVariant?.originalPrice ?? product.originalPrice;
+  const displayUnit = activeVariant?.unit ?? product.unit;
+  const variantId = activeVariant?.id;
 
+  const discount = displayOriginalPrice
+    ? Math.round(((displayOriginalPrice - displayPrice) / displayOriginalPrice) * 100)
+    : 0;
+ const cartItem = items.find(
+    (i) =>
+      i.product.id === id &&
+      (variantId ? i.selectedVariantId === variantId : !i.selectedVariantId)
+  );
   const handleAdd = () => {
-    addToCart(product);
+    addToCart(product, variantId);
   };
 
     useEffect(() => {
@@ -80,22 +89,45 @@ export default function ProductDetail() {
             {product.name}
           </h1>
 
-          <p className="text-xs sm:text-sm text-muted-foreground">
-            Net Qty: {product.unit}
-          </p>
+            {/* Variant selector */}
+          {variants && variants.length > 1 ? (
+            <div className="flex flex-wrap gap-2">
+              {variants.map((v, idx) => (
+                <button
+                  key={v.id}
+                  onClick={() => setSelectedVariantIdx(idx)}
+                  className={`rounded-lg border-2 px-4 py-2 text-sm font-medium transition-all ${
+                    idx === selectedVariantIdx
+                      ? "border-primary bg-primary/10 text-primary"
+                      : "border-border text-muted-foreground hover:border-primary/50"
+                  }`}
+                >
+                  <span className="block font-bold">{v.unit}</span>
+                  <span className="text-xs">₹{v.price}</span>
+                  {v.originalPrice && (
+                    <span className="ml-1 text-xs text-muted-foreground line-through">₹{v.originalPrice}</span>
+                  )}
+                </button>
+              ))}
+            </div>
+          ) : (
+            <p className="text-xs sm:text-sm text-muted-foreground">
+              Net Qty: {displayUnit}
+            </p>
+          )}
 
           {/* Price */}
           <div className="flex items-center gap-3">
             <span className="rounded-md bg-primary px-3 py-1 text-lg sm:text-xl font-bold text-primary-foreground">
-              ₹{product.price}
+              ₹{displayPrice}
             </span>
-            {product.originalPrice && (
+            {displayOriginalPrice && (
               <>
                 <span className="text-sm text-muted-foreground line-through">
-                  MRP ₹{product.originalPrice}
+                  MRP ₹{displayOriginalPrice}
                 </span>
                 <span className="text-sm font-semibold text-green-600">
-                  ₹{product.originalPrice - product.price} OFF
+                  ₹{displayOriginalPrice - displayPrice} OFF
                 </span>
               </>
             )}
@@ -124,7 +156,7 @@ export default function ProductDetail() {
                   variant="ghost"
                   size="icon"
                   className="h-8 w-8"
-                  onClick={() => updateQuantity(product.id, cartItem.quantity - 1)}
+                  onClick={() => updateQuantity(product.id, cartItem.quantity - 1, variantId)}
                 >
                   <Minus className="h-4 w-4" />
                 </Button>
@@ -135,13 +167,13 @@ export default function ProductDetail() {
                   variant="ghost"
                   size="icon"
                   className="h-8 w-8"
-                  onClick={() => updateQuantity(product.id, cartItem.quantity + 1)}
+                  onClick={() => updateQuantity(product.id, cartItem.quantity + 1, variantId)}
                 >
                   <Plus className="h-4 w-4" />
                 </Button>
               </div>
               <span className="text-sm text-muted-foreground">
-                Total: <span className="font-bold text-foreground">₹{product.price * cartItem.quantity}</span>
+                Total: <span className="font-bold text-foreground">₹{displayPrice  * cartItem.quantity}</span>
               </span>
             </div>
           ) : (
@@ -150,7 +182,7 @@ export default function ProductDetail() {
               className="w-full text-base md:max-w-xs"
               onClick={handleAdd}
             >
-              Add to Cart — ₹{product.price}
+              Add to Cart — ₹{displayPrice}
             </Button>
           )}
 
@@ -162,8 +194,11 @@ export default function ProductDetail() {
             <div className="space-y-0 rounded-lg border overflow-hidden">
               {[
                 { label: "Category", value: product.category },
-                { label: "Unit", value: product.unit },
+                { label: "Unit", value:  displayUnit },
                 { label: "Availability", value: product.inStock ? "In Stock" : "Out of Stock" },
+                 ...(variants && variants.length > 1
+                  ? [{ label: "Variants", value: variants.map((v) => v.unit).join(", ") }]
+                  : []),
               ].map((row, i) => (
                 <div
                   key={row.label}

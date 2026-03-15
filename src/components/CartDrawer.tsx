@@ -72,7 +72,7 @@ export function CartDrawer() {
                         variant="ghost"
                         size="icon"
                         className="h-6 w-6"
-                        onClick={() => updateQuantity(item.product.id, item.quantity - 1)}
+                        onClick={() => updateQuantity(item.product.id, item.quantity - 1, item.selectedVariantId)}
                       >
                         <Minus className="h-3 w-3" />
                       </Button>
@@ -83,7 +83,7 @@ export function CartDrawer() {
                         variant="ghost"
                         size="icon"
                         className="h-6 w-6"
-                        onClick={() => updateQuantity(item.product.id, item.quantity + 1)}
+                        onClick={() => updateQuantity(item.product.id, item.quantity + 1, item.selectedVariantId)}
                       >
                         <Plus className="h-3 w-3" />
                       </Button>
@@ -92,7 +92,7 @@ export function CartDrawer() {
                       variant="ghost"
                       size="icon"
                       className="h-6 w-6 text-destructive"
-                      onClick={() => removeFromCart(item.product.id)}
+                      onClick={() => removeFromCart(item.product.id, item.selectedVariantId)}
                     >
                       <Trash2 className="h-3 w-3" />
                     </Button>

@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 export function HeroBanner() {
   return (
-    <section className="relative overflow-hidden bg-primary px-4 py-12 md:py-20">
+    <section className="relative overflow-hidden bg-primary px-4 py-5 md:py-10">
       {/* Decorative circles */}
       <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-primary-foreground/10" />
       <div className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-primary-foreground/5" />

@@ -11,6 +11,7 @@ export interface Product {
   featured?: boolean;
   stock?: number;
   popular?: boolean;
+  variants?: ProductVariant[];
 }
 
 export interface Category {
@@ -19,6 +20,14 @@ export interface Category {
   icon: string;
   color: string;
 }
+
+export interface ProductVariant {
+  id: string;
+  unit: string;
+  price: number;
+  originalPrice?: number;
+}
+
 
 export const categories: Category[] = [
   { id: "vegetables", name: "Vegetables", icon: "🥬", color: "bg-green-100" },
@@ -42,7 +51,12 @@ export const products: Product[] = [
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/250px-Tomato_je_c1cuys.jpg",
   description: "Farm-fresh red tomatoes, perfect for curries and salads.",
   inStock: true,
-  featured: true
+  featured: true,
+   variants: [
+      { id: "1-500g", unit: "500g", price: 25, originalPrice: 40 },
+      { id: "1-1kg", unit: "1kg", price: 45, originalPrice: 75 },
+      { id: "1-2kg", unit: "2kg", price: 80, originalPrice: 140 },
+    ],
 },
 {
   name: "Green Spinach",
@@ -61,7 +75,11 @@ export const products: Product[] = [
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/df54c034-a747-4f00-81ce-47191ab4972c.9efd669f6daffd19ffaf32e270ef7598_l0qyns.jpg",
   description: "Premium quality onions for everyday cooking.",
-  inStock: true
+  inStock: true,
+  variants: [
+    { id: "2-500g", unit: "500g", price: 35, originalPrice: 45 },
+    { id: "2-1kg", unit: "1kg", price: 65, originalPrice: 85 },
+  ],
 },
 {
   name: "Potatoes",
@@ -70,7 +88,12 @@ export const products: Product[] = [
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465257/potatoes-scaled_apgoq1.jpg",
   description: "Fresh potatoes, ideal for all types of dishes.",
-  inStock: true
+  inStock: true,
+  variants: [
+      { id: "4-1kg", unit: "1kg", price: 10 },
+      { id: "4-5kg", unit: "5kg", price: 45 },
+      { id: "4-10kg", unit: "10kg", price: 85 },
+    ],
 },
 {
   name: "Green Capsicum",
@@ -107,7 +130,11 @@ export const products: Product[] = [
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/Green-Peas_cjbnl1.jpg",
   description: "Sweet and tender green peas perfect for pulao and curry.",
   inStock: true,
-  popular: true
+  popular: true,
+  variants: [
+    { id: "4-2kg", unit: "500g", price: 55, originalPrice: 60 },
+    { id: "4-1kg", unit: "1kg", price: 30, originalPrice: 40 },
+  ],
 },
 {
   name: "Green Chilli",
@@ -192,7 +219,11 @@ export const products: Product[] = [
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490343/WhatsApp-Image-2022-01-11-at-16.53.57-1_rlxs3j.jpg",
   description: "Premium Shimla apples known for crisp texture.",
   inStock: true,
-  popular: true
+  popular: true,
+   variants: [
+      { id: "7-1kg", unit: "1kg", price: 150 },
+      { id: "7-2kg", unit: "2kg", price: 280 },
+    ],
 },
 {
   name: "Pineapple",
@@ -314,7 +345,11 @@ export const products: Product[] = [
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490919/Tangerine-SpotlessFruitsIndia_1024x1024_n3d2oy.png",
   description: "Fresh juicy oranges.",
-  inStock: true
+  inStock: true,
+  variants: [
+    { id: "5-2kg", unit: "500g", price: 200, originalPrice: 40 },
+    { id: "5-1kg", unit: "1kg", price: 100, originalPrice: 75 },
+  ],
 }
 
 ].map((product) => ({
