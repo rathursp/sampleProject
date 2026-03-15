@@ -33,7 +33,12 @@ const Checkout = () => {
   const [slot, setSlot] = useState(deliverySlots[0]);
   const [selectedTip, setSelectedTip] = useState<number | null>(null);
   const [deliveryInstructions, setDeliveryInstructions] = useState<string[]>([]);
-
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [pincode, setPincode] = useState("");
+  const [city, setCity] = useState("");
+  
   if (items.length === 0) {
     return (
       <div className="container flex flex-col items-center gap-4 py-20">
@@ -77,17 +82,29 @@ const Checkout = () => {
     )
     .join("\n");
 
- // WhatsApp message (direct to +919035197969)
-  const whatsappMessage = encodeURIComponent(
-    `🛒 *ISAARA Order*\n\n👤 Name: \n📞 Phone: \n\n📍 Address: \n\n⏰ Delivery Slot: ${slot}\n💳 Payment: ${
-      paymentMethod === "cod" ? "Cash on Delivery" : "UPI (GPay/PhonePe)"
-    }\n\n📦 Order Items:\n${items
-      .map((i) => `• ${i.product.name} (${i.product.unit}) x${i.quantity} = ₹${i.product.price * i.quantity}`)
-      .join("\n")}\n\n🚚 Tip: ₹${selectedTip || 0}\n📢 Instructions: ${
-      deliveryInstructions.length > 0 ? deliveryInstructions.join(", ") : "None"
-    }\n💰 Total: ₹${totalPrice + (selectedTip || 0)}\n\n🙏 Thank you for ordering from ISAARA`
-  );
-  const whatsappUrl = `https://wa.me/919035197969?text=${whatsappMessage}`;
+ // WhatsApp message (direct to +918235868992)
+const whatsappMessage = encodeURIComponent(
+`🛒 *ISAARA Order*
+
+👤 Name: ${name}
+📞 Phone: ${phone}
+
+📍 Address: ${address}, ${city} - ${pincode}
+
+⏰ Delivery Slot: ${slot}
+💳 Payment: ${paymentMethod === "cod" ? "Cash on Delivery" : "UPI"}
+
+📦 Order Items:
+${items.map((i)=>`• ${i.product.name} (${i.product.unit}) x${i.quantity} = ₹${i.product.price * i.quantity}`).join("\n")}
+
+🚚 Tip: ₹${selectedTip || 0}
+📢 Instructions: ${deliveryInstructions.length > 0 ? deliveryInstructions.join(", ") : "None"}
+
+💰 Total: ₹${totalPrice + (selectedTip || 0)}
+
+🙏 Thank you for ordering from ISAARA`
+);
+  const whatsappUrl = `https://wa.me/918235868992?text=${whatsappMessage}`;
 
 
   const tipOptions = [10, 20, 35];
@@ -323,23 +340,23 @@ const Checkout = () => {
           <div className="grid gap-3 md:grid-cols-2">
             <div>
               <Label htmlFor="name">Full Name</Label>
-              <Input id="name" placeholder="Your name" />
+              <Input id="name" placeholder="Your name" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div>
               <Label htmlFor="phone">Phone Number</Label>
-              <Input id="phone" placeholder="+91 XXXXX XXXXX" />
+              <Input id="phone" placeholder="+91 XXXXX XXXXX" value={phone} onChange={(e) => setPhone(e.target.value)} />
             </div>
             <div className="md:col-span-2">
               <Label htmlFor="address">Address</Label>
-              <Input id="address" placeholder="House / Flat, Street" />
+              <Input id="address" placeholder="House / Flat, Street" value={address} onChange={(e) => setAddress(e.target.value)} />
             </div>
             <div>
               <Label htmlFor="pincode">Pincode</Label>
-              <Input id="pincode" placeholder="XXXXXX" />
+              <Input id="pincode" placeholder="XXXXXX" value={pincode} onChange={(e) => setPincode(e.target.value)} />
             </div>
             <div>
               <Label htmlFor="city">City</Label>
-              <Input id="city" placeholder="City" />
+              <Input id="city" placeholder="City" value={city} onChange={(e) => setCity(e.target.value)} />
             </div>
           </div>
         </div>
