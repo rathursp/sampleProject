@@ -100,7 +100,7 @@ export const products: Product[] = [
   category: "vegetables",
   price: 35,
   unit: "250g",
-  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773464596/cap_wsipzy.png",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/Green_bell_pepper_jnpavf.jpg",
   description: "Fresh green bell peppers, crunchy and flavorful.",
   inStock: true
 },
