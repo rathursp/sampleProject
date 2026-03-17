@@ -1,4 +1,11 @@
-import { ShoppingCart, Search, Menu, X, LogIn, LogOut, User } from "lucide-react";
+import {
+  ShoppingCart,
+  Menu,
+  X,
+  LogOut,
+  User,
+  MapPin
+} from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -6,9 +13,22 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger
+} from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage
+} from "@/components/ui/avatar";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -19,7 +39,6 @@ const navLinks = [
 export function Header() {
   const { totalItems, setIsCartOpen } = useCart();
   const { user, isLoggedIn, login, logout } = useAuth();
-  const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
@@ -27,31 +46,34 @@ export function Header() {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
-      setSearchOpen(false);
       setSearchQuery("");
     }
   };
 
   return (
     <header className="sticky top-0 z-50 border-b bg-card/95 backdrop-blur supports-[backdrop-filter]:bg-card/80">
-      <div className="container flex h-14 items-center justify-between gap-2 md:h-16">
-        {/* Mobile menu */}
+
+      {/* MAIN HEADER */}
+      <div className="container flex h-14 items-center justify-between gap-3 md:h-16">
+
+        {/* MOBILE MENU */}
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
+
           <SheetContent side="left" className="w-64">
             <div className="mt-8 flex flex-col gap-4">
-              <Link to="/" className="font-heading text-2xl font-bold text-primary">
+              <Link to="/" className="text-2xl font-bold text-primary">
                 ISAARA
               </Link>
               {navLinks.map((link) => (
                 <Link
                   key={link.to}
                   to={link.to}
-                  className="text-lg font-medium text-foreground/80 transition-colors hover:text-primary"
+                  className="text-lg text-foreground/80 hover:text-primary"
                 >
                   {link.label}
                 </Link>
@@ -60,80 +82,98 @@ export function Header() {
           </SheetContent>
         </Sheet>
 
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-1">
-          <span className="font-heading text-xl font-bold tracking-tight text-primary md:text-2xl">
-            ISAARA
+         {/* LOGO + LOCATION */}
+        <Link to="/" className="flex flex-col leading-tight">
+          <span className="text-lg font-bold text-primary">ISAARA</span>
+          <span className="flex items-center gap-1 text-[10px] text-gray-500">
+            <MapPin className="h-3 w-3" />
+            Deliver in 10 mins
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              className="text-sm font-medium text-foreground/70 transition-colors hover:text-primary"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        {/* NAV + SEARCH (DESKTOP) */}
+        <div className="hidden md:flex items-center gap-4 flex-1 justify-center">
 
-        {/* Actions */}
-        <div className="flex items-center gap-1.5">
-          {searchOpen ? (
-            <form onSubmit={handleSearch} className="flex items-center gap-1">
-              <Input
-                autoFocus
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search groceries..."
-                className="h-8 w-36 text-sm md:w-52"
-              />
-              <Button type="button" variant="ghost" size="icon" onClick={() => setSearchOpen(false)}>
+          {/* NAV */}
+          <nav className="flex items-center gap-4 text-sm text-muted-foreground">
+            {navLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="hover:text-primary transition"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+
+          {/* SEARCH */}
+          <form onSubmit={handleSearch} className="relative">
+            <Input
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search groceries..."
+              className="h-9 w-64 rounded-full bg-muted pl-4 pr-8 text-sm focus-visible:ring-2 focus-visible:ring-primary/40"
+            />
+
+            {/* CLEAR BUTTON */}
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+              >
                 <X className="h-4 w-4" />
-              </Button>
-            </form>
-          ) : (
-            <Button variant="ghost" size="icon" onClick={() => setSearchOpen(true)}>
-              <Search className="h-5 w-5" />
-            </Button>
-          )}
+              </button>
+            )}
+          </form>
+        </div>
 
+        {/* RIGHT ACTIONS */}
+        <div className="flex items-center gap-2">
+
+          {/* CART */}
           <Button
             variant="ghost"
             size="icon"
-            className="relative"
+            className="relative hover:scale-105 transition"
             onClick={() => setIsCartOpen(true)}
           >
             <ShoppingCart className="h-5 w-5" />
             {totalItems > 0 && (
-              <Badge className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full p-0 text-[10px]">
+              <Badge className="absolute -right-1 -top-1 flex h-5 min-w-[20px] items-center justify-center rounded-full bg-primary px-1 text-[10px] text-white">
                 {totalItems}
               </Badge>
             )}
           </Button>
 
+          {/* USER */}
           {isLoggedIn ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full">
-                  <Avatar className="h-7 w-7">
+                <Button variant="ghost" className="rounded-full p-1 hover:scale-105 transition">
+                  <Avatar className="h-8 w-8">
                     <AvatarImage src={user?.avatar} />
-                    <AvatarFallback className="bg-primary text-primary-foreground text-xs">
+                    <AvatarFallback className="bg-primary text-white">
                       <User className="h-4 w-4" />
                     </AvatarFallback>
                   </Avatar>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuItem className="flex-col items-start gap-0.5 cursor-default">
-                  <span className="text-sm font-medium">{user?.name}</span>
-                  <span className="text-xs text-muted-foreground">{user?.email}</span>
+
+              <DropdownMenuContent align="end" className="w-52">
+                <DropdownMenuItem className="flex-col items-start cursor-default">
+                  <span className="font-medium">{user?.name}</span>
+                  <span className="text-xs text-muted-foreground">
+                    {user?.email}
+                  </span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={logout} className="text-destructive gap-2">
-                  <LogOut className="h-4 w-4" />
+
+                <DropdownMenuItem
+                  onClick={logout}
+                  className="text-destructive"
+                >
+                  <LogOut className="mr-2 h-4 w-4" />
                   Logout
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -155,6 +195,18 @@ export function Header() {
             </Button>
           )}
         </div>
+      </div>
+
+      {/* MOBILE SEARCH */}
+      <div className="px-4 pb-2 md:hidden">
+        <form onSubmit={handleSearch}>
+          <Input
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search groceries..."
+            className="h-9 w-full rounded-full bg-gray-100 px-4 text-sm"
+          />
+        </form>
       </div>
     </header>
   );
