@@ -1,14 +1,14 @@
 import { HeroBanner } from "@/components/HeroBanner";
-import { CategoryGrid } from "@/components/CategoryGrid";
+import { CategoryStrip } from "@/components/CategoryStrip";
+import { DealBanners } from "@/components/DealBanners";
 import { FeaturedProducts } from "@/components/FeaturedProducts";
-import { PopularProducts } from "@/components/PopularProducts";
 
 const Index = () => {
   return (
     <>
       <HeroBanner />
-      <CategoryGrid />
-      <PopularProducts />
+      <CategoryStrip />
+      <DealBanners />
       <FeaturedProducts />
     </>
   );

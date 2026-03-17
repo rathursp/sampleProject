@@ -1,17 +1,28 @@
-export interface Product {
+import priceData from "./prices.json";
+import inventoryData from "./inventory.json";
+import offerData from "./offers.json";
+
+export interface ProductVariant {
   id: string;
-  name: string;
-  category: string;
+  unit: string;
   price: number;
   originalPrice?: number;
-  unit: string;
-  image: string;
-  description: string;
-  inStock: boolean;
-  featured?: boolean;
-  stock?: number;
-  popular?: boolean;
-  variants?: ProductVariant[];
+}
+
+export interface Product {
+  id: string;
+  key: string
+  name: string
+  category: string
+  unit: string
+  image: string
+  description: string
+  price: number
+  originalPrice?: number
+  variants?: ProductVariant[]
+  inStock: boolean
+  stock?: number
+  tag?: string
 }
 
 export interface Category {
@@ -22,12 +33,10 @@ export interface Category {
 }
 
 export interface ProductVariant {
-  id: string;
-  unit: string;
-  price: number;
-  originalPrice?: number;
+  id: string
+  unit: string
+  price: number
 }
-
 
 export const categories: Category[] = [
   { id: "vegetables", name: "Vegetables", icon: "🥬", color: "bg-green-100" },
@@ -38,322 +47,367 @@ export const categories: Category[] = [
   { id: "beverages", name: "Beverages", icon: "🧃", color: "bg-purple-100" },
 ];
 
+type PriceInfo = {
+  variants?: ProductVariant[]
+  price?: number
+  originalPrice?: number
+}
+
+const getProductData = (key: keyof typeof priceData) => {
+  const priceInfo = priceData[key] as PriceInfo
+
+  return {
+    price: priceInfo.price ?? priceInfo.variants?.[0]?.price ?? 0,
+    originalPrice: priceInfo.originalPrice,
+    variants: priceInfo.variants ?? [],
+    inStock: inventoryData[key]?.inStock ?? true,
+    stock: inventoryData[key]?.stock ?? 0,
+    tag: offerData[key]?.tag
+  }
+}
+
 export const products: Product[] = [
 
 /* Vegetables */
 
 {
+  id: "fresh_tomatoes",
+  key: "fresh_tomatoes",
   name: "Fresh Tomatoes",
   category: "vegetables",
-  price: 25,
-  originalPrice: 40,
   unit: "500g",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/250px-Tomato_je_c1cuys.jpg",
   description: "Farm-fresh red tomatoes, perfect for curries and salads.",
-  inStock: true,
   featured: true,
-   variants: [
-      { id: "1-500g", unit: "500g", price: 25, originalPrice: 40 },
-      { id: "1-1kg", unit: "1kg", price: 45, originalPrice: 75 },
-      { id: "1-2kg", unit: "2kg", price: 80, originalPrice: 140 },
-    ],
+  ...getProductData("fresh_tomatoes")
 },
+
 {
+  id: "green_spinach",
+  key: "green_spinach",
   name: "Green Spinach",
   category: "vegetables",
-  price: 25,
   unit: "250g",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/136-500x500_f17b4p.jpg",
   description: "Fresh organic spinach leaves, rich in iron.",
-  inStock: true
+  ...getProductData("green_spinach")
 },
+
 {
+  id: "onions",
+  key: "onions",
   name: "Onions",
   category: "vegetables",
-  price: 35,
-  originalPrice: 45,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/df54c034-a747-4f00-81ce-47191ab4972c.9efd669f6daffd19ffaf32e270ef7598_l0qyns.jpg",
   description: "Premium quality onions for everyday cooking.",
-  inStock: true,
-  variants: [
-    { id: "2-500g", unit: "500g", price: 35, originalPrice: 45 },
-    { id: "2-1kg", unit: "1kg", price: 65, originalPrice: 85 },
-  ],
+  ...getProductData("onions")
 },
+
 {
+  id: "potatoes",
+  key: "potatoes",
   name: "Potatoes",
   category: "vegetables",
-  price: 28,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465257/potatoes-scaled_apgoq1.jpg",
   description: "Fresh potatoes, ideal for all types of dishes.",
-  inStock: true,
-  variants: [
-      { id: "4-1kg", unit: "1kg", price: 10 },
-      { id: "4-5kg", unit: "5kg", price: 45 },
-      { id: "4-10kg", unit: "10kg", price: 85 },
-    ],
+  ...getProductData("potatoes")
 },
+
 {
+  id: "green_capsicum",
+  key: "green_capsicum",
   name: "Green Capsicum",
   category: "vegetables",
-  price: 35,
   unit: "250g",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/Green_bell_pepper_jnpavf.jpg",
-  description: "Fresh green bell peppers, crunchy and flavorful.",
-  inStock: true
+  description: "Fresh green bell peppers.",
+  ...getProductData("green_capsicum")
 },
+
 {
+  id: "cauliflower",
+  key: "cauliflower",
   name: "Cauliflower",
   category: "vegetables",
-  price: 40,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773466236/Chou-fleur_02_q3jane.jpg",
-  description: "Fresh farm cauliflower, perfect for curries and sabzi.",
-  inStock: true
+  description: "Fresh farm cauliflower.",
+  ...getProductData("cauliflower")
 },
+
 {
+  id: "cabbage",
+  key: "cabbage",
   name: "Cabbage",
   category: "vegetables",
-  price: 22,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465852/Freshpoint-green-cabbage_o6lnvg.jpg",
-  description: "Crisp and fresh cabbage, ideal for salads and stir fry.",
-  inStock: true
+  description: "Crisp and fresh cabbage.",
+  ...getProductData("cabbage")
 },
+
 {
+  id: "green_peas",
+  key: "green_peas",
   name: "Green Peas (Matar)",
   category: "vegetables",
-  price: 30,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/Green-Peas_cjbnl1.jpg",
-  description: "Sweet and tender green peas perfect for pulao and curry.",
-  inStock: true,
+  description: "Sweet and tender green peas.",
   popular: true,
-  variants: [
-    { id: "4-2kg", unit: "500g", price: 55, originalPrice: 60 },
-    { id: "4-1kg", unit: "1kg", price: 30, originalPrice: 40 },
-  ],
+  ...getProductData("green_peas")
 },
+
 {
+  id: "green_chilli",
+  key: "green_chilli",
   name: "Green Chilli",
   category: "vegetables",
-  price: 35,
   unit: "250g",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465906/Artboard_1_copy_grande_nzpjv5.jpg",
-  description: "Fresh green chillies adding perfect spice to meals.",
-  inStock: true
+  description: "Fresh green chillies.",
+  ...getProductData("green_chilli")
 },
+
 {
+  id: "garlic",
+  key: "garlic",
   name: "Garlic",
   category: "vegetables",
-  price: 40,
   unit: "250g",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465918/garlic_twlb3z.jpg",
-  description: "Aromatic garlic cloves essential for Indian cooking.",
-  inStock: true
+  description: "Aromatic garlic cloves.",
+  ...getProductData("garlic")
 },
+
 {
+  id: "ginger",
+  key: "ginger",
   name: "Ginger",
   category: "vegetables",
-  price: 30,
   unit: "250g",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465931/ginger-80e324d-scaled_fzdona.jpg",
-  description: "Fresh ginger roots great for tea and curries.",
-  inStock: true
+  description: "Fresh ginger roots.",
+  ...getProductData("ginger")
 },
+
 {
+  id: "beetroot",
+  key: "beetroot",
   name: "Beetroot",
   category: "vegetables",
-  price: 40,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465953/beetroot_mbtqg3.jpg",
-  description: "Healthy beetroot perfect for juices and salads.",
-  inStock: true
+  description: "Healthy beetroot.",
+  ...getProductData("beetroot")
 },
+
 {
+  id: "lemon",
+  key: "lemon",
   name: "Lemon",
   category: "vegetables",
-  price: 15,
   unit: "2pcs",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465981/PXL_20250116_1607549042_rpsylo.jpg",
-  description: "Juicy lemons for refreshing drinks and cooking.",
-  inStock: true
+  description: "Juicy lemons.",
+  ...getProductData("lemon")
 },
+
 {
+  id: "bottle_gourd",
+  key: "bottle_gourd",
   name: "Bottle Gourd (Lauki)",
   category: "vegetables",
-  price: 40,
   unit: "1pc",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773466007/1524_yup6kf.jpg",
-  description: "Tender bottle gourd perfect for healthy meals.",
-  inStock: true
+  description: "Tender bottle gourd.",
+  ...getProductData("bottle_gourd")
 },
+
 {
+  id: "brinjal",
+  key: "brinjal",
   name: "Brinjal (Baingan)",
   category: "vegetables",
-  price: 50,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773466049/round_eggplant_800x_ddqgtf.png",
-  description: "Fresh brinjal perfect for bharta and curry dishes.",
-  inStock: true
+  description: "Fresh brinjal perfect for bharta.",
+  ...getProductData("brinjal")
 },
+
 {
+  id: "cucumber",
+  key: "cucumber",
   name: "Cucumber",
   category: "vegetables",
-  price: 50,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773466071/Cucumber_yzbwtt.jpg",
-  description: "Crunchy cucumbers perfect for salads and raita.",
-  inStock: true
+  description: "Crunchy cucumbers.",
+  ...getProductData("cucumber")
 },
 
 /* Fruits */
 
 {
+  id: "shimla_apple",
+  key: "shimla_apple",
   name: "Shimla Apple",
   category: "fruits",
-  price: 180,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490343/WhatsApp-Image-2022-01-11-at-16.53.57-1_rlxs3j.jpg",
-  description: "Premium Shimla apples known for crisp texture.",
-  inStock: true,
+  description: "Premium Shimla apples.",
   popular: true,
-   variants: [
-      { id: "7-1kg", unit: "1kg", price: 150 },
-      { id: "7-2kg", unit: "2kg", price: 280 },
-    ],
+  ...getProductData("shimla_apple")
 },
+
 {
+  id: "pineapple",
+  key: "pineapple",
   name: "Pineapple",
   category: "fruits",
-  price: 50,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490370/71_qAJehpkL_djbgag.jpg",
-  description: "Fresh tropical pineapple perfect for juices.",
-  inStock: true
+  description: "Fresh tropical pineapple.",
+  ...getProductData("pineapple")
 },
+
 {
+  id: "pomegranate",
+  key: "pomegranate",
   name: "Pomegranate",
   category: "fruits",
-  price: 210,
   unit: "1kg",
   image: "https://images.unsplash.com/photo-1541344999736-83eca272f6fc?w=400&h=400&fit=crop",
   description: "Sweet pomegranates packed with antioxidants.",
-  inStock: true,
-  popular: true
+  popular: true,
+  ...getProductData("pomegranate")
 },
+
 {
+  id: "chiniya_banana",
+  key: "chiniya_banana",
   name: "Chiniya Banana",
   category: "fruits",
-  price: 70,
   unit: "13pcs",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/banana-1_qryzdr.jpg",
   description: "Small sweet chiniya bananas.",
-  inStock: true,
-  popular: true
+  popular: true,
+  ...getProductData("chiniya_banana")
 },
+
 {
+  id: "kiwi",
+  key: "kiwi",
   name: "Kiwi",
   category: "fruits",
-  price: 75,
   unit: "3pcs",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490473/330px-Kiwi__28Actinidia_chinensis_29_1_Luc_Viatour_qbolui.jpg",
   description: "Vitamin C rich kiwi fruits.",
-  inStock: true,
-  popular: true
+  ...getProductData("kiwi")
 },
+
 {
+  id: "papaya",
+  key: "papaya",
   name: "Papaya",
   category: "fruits",
-  price: 60,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490522/330px-Carica_papaya_dsc07806_hs8z2j.jpg",
   description: "Ripe nutritious papaya.",
-  inStock: true,
-  popular: true
+  ...getProductData("papaya")
 },
+
 {
+  id: "singapuri_banana",
+  key: "singapuri_banana",
   name: "Singapuri Banana",
   category: "fruits",
-  price: 80,
   unit: "13pcs",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490635/42E9as7NaTaAi4A6JcuFwG-1200-80_wq8lbp.jpg",
   description: "Fresh Singapuri bananas.",
-  inStock: true
+  ...getProductData("singapuri_banana")
 },
+
 {
+  id: "imported_guava",
+  key: "imported_guava",
   name: "Imported Guava",
   category: "fruits",
-  price: 150,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/Imported-Guava_kp7rjf.jpg",
   description: "Premium imported guava.",
-  inStock: true
+  ...getProductData("imported_guava")
 },
+
 {
+  id: "strawberry",
+  key: "strawberry",
   name: "Strawberry",
   category: "fruits",
-  price: 140,
   unit: "200g",
   image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=400&h=400&fit=crop",
-  description: "Fresh strawberries for desserts.",
-  inStock: true,
-  popular: true
+  description: "Fresh strawberries.",
+  ...getProductData("strawberry")
 },
+
 {
+  id: "grapes",
+  key: "grapes",
   name: "Grapes",
   category: "fruits",
-  price: 160,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490715/598fa4dc3131dff06c11acffafcc0e6a_dalfya.jpg",
   description: "Sweet juicy grapes.",
-  inStock: true
+  ...getProductData("grapes")
 },
+
 {
+  id: "watermelon",
+  key: "watermelon",
   name: "Watermelon",
   category: "fruits",
-  price: 85,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/watermeloen_2_eu3c0h.jpg",
   description: "Refreshing watermelon.",
-  inStock: true
+  ...getProductData("watermelon")
 },
+
 {
+  id: "fuji_apple",
+  key: "fuji_apple",
   name: "Fuji Apple",
   category: "fruits",
-  price: 290,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490833/FujiApples4pieces_1_spnh7x.png",
   description: "Premium Fuji apples.",
-  inStock: true
+  ...getProductData("fuji_apple")
 },
+
 {
+  id: "kinnaur_apple",
+  key: "kinnaur_apple",
   name: "Kinnaur Apple",
   category: "fruits",
-  price: 220,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490865/images_6cfaa187-464d-40c5-8510-4c47e4cc9994_201x_cses4h.jpg",
   description: "Famous Himachal Kinnaur apples.",
-  inStock: true
+  ...getProductData("kinnaur_apple")
 },
+
 {
+  id: "orange",
+  key: "orange",
   name: "Orange",
   category: "fruits",
-  price: 100,
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490919/Tangerine-SpotlessFruitsIndia_1024x1024_n3d2oy.png",
   description: "Fresh juicy oranges.",
-  inStock: true,
-  variants: [
-    { id: "5-2kg", unit: "500g", price: 200, originalPrice: 40 },
-    { id: "5-1kg", unit: "1kg", price: 100, originalPrice: 75 },
-  ],
+  ...getProductData("orange")
 }
 
 ].map((product) => ({
   ...product,
-  id: crypto.randomUUID(),
-  featured: product.category === "vegetables" ? true : product.featured
+  id: crypto.randomUUID()
 }));

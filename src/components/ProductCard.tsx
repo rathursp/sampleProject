@@ -6,6 +6,7 @@ import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 
 interface ProductCardProps {
   product: Product;
@@ -49,7 +50,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <img
           src={product.image}
           alt={product.name}
-          className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+          className="rounded-md mb-2 h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
         />
 
@@ -109,13 +110,13 @@ export function ProductCard({ product }: ProductCardProps) {
         )}
 
         <h3 className="text-xs sm:text-sm font-medium leading-tight text-card-foreground line-clamp-2 min-h-[28px]">
-          {product.name}
+          <h3 className="font-heading font-bold">{product.name}</h3>
         </h3>
 
         <div className="mt-auto flex items-center justify-between pt-1">
           <div className="flex flex-col">
             <span className="text-sm sm:text-base font-bold text-foreground">
-              ₹{displayPrice}
+               <p className="text-green-600 font-semibold">₹{displayPrice}</p>
             </span>
             {displayOriginalPrice && (
               <span className="text-[10px] sm:text-xs text-muted-foreground line-through">

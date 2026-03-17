@@ -1,0 +1,51 @@
+{
+  "fresh_tomatoes": {
+    "variants": [
+      { "id": "250g", "unit": "250g", "price": 20 },
+      { "id": "500g", "unit": "500g", "price": 25 },
+      { "id": "1kg", "unit": "1kg", "price": 48 }
+    ],
+    "originalPrice": 40
+  },
+  "green_spinach": { "price": 25 },
+  "onions": {
+    "variants": [
+      { "id": "500g", "unit": "500g", "price": 20 },
+      { "id": "1kg", "unit": "1kg", "price": 35 }
+    ],
+    "originalPrice": 45
+  },
+  "potatoes": {
+    "variants": [
+      { "id": "500g", "unit": "500g", "price": 15 },
+      { "id": "1kg", "unit": "1kg", "price": 28 }
+    ]
+  },
+  "green_capsicum": { "price": 50 , "originalPrice": 50 },
+  "cauliflower": { "price": 45 },
+  "cabbage": { "price": 35 },
+  "green_peas": { "price": 60 },
+  "green_chilli": { "price": 20 },
+  "garlic": { "price": 55 },
+  "ginger": { "price": 45 },
+  "beetroot": { "price": 40 },
+  "lemon": { "price": 10 },
+  "bottle_gourd": { "price": 35 },
+  "brinjal": { "price": 45 },
+  "cucumber": { "price": 40 },
+
+  "shimla_apple": { "price": 180 },
+  "pineapple": { "price": 80 },
+  "pomegranate": { "price": 160 },
+  "chiniya_banana": { "price": 60 },
+  "kiwi": { "price": 120 },
+  "papaya": { "price": 70 },
+  "singapuri_banana": { "price": 65 },
+  "imported_guava": { "price": 90 },
+  "strawberry": { "price": 110 },
+  "grapes": { "price": 85 },
+  "watermelon": { "price": 35 },
+  "fuji_apple": { "price": 220 },
+  "kinnaur_apple": { "price": 240 },
+  "orange": { "price": 90 }
+}
