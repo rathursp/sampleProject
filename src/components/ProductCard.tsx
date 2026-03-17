@@ -6,7 +6,6 @@ import { useCart } from "@/contexts/CartContext";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
-import { ShoppingCartIcon } from "@heroicons/react/24/solid";
 
 interface ProductCardProps {
   product: Product;
