@@ -6,9 +6,9 @@ import { FeaturedProducts } from "@/components/FeaturedProducts";
 const Index = () => {
   return (
     <>
-      <HeroBanner />
-      <CategoryStrip />
+      {/* <HeroBanner /> */}
       <DealBanners />
+      <CategoryStrip />
       <FeaturedProducts />
     </>
   );

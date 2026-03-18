@@ -21,17 +21,12 @@ export function CategoryStrip() {
   };
 
   return (
-    <section className="py-4 md:py-6">
+    <section className="sticky top-[70px] z-40 bg-white border-b py-2">
       <div className="container relative">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-heading text-lg font-bold md:text-xl">Shop by Category</h2>
+          {/* <h2 className="font-heading text-lg font-bold md:text-xl">Shop by Category</h2> */}
           <div className="hidden md:flex gap-1">
-            <Button variant="outline" size="icon" className="h-7 w-7 rounded-full" onClick={() => scroll("left")}>
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="icon" className="h-7 w-7 rounded-full" onClick={() => scroll("right")}>
-              <ChevronRight className="h-4 w-4" />
-            </Button>
+            
           </div>
         </div>
         <div

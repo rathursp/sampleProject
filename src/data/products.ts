@@ -11,18 +11,23 @@ export interface ProductVariant {
 
 export interface Product {
   id: string;
-  key: string
-  name: string
-  category: string
-  unit: string
-  image: string
-  description: string
-  price: number
-  originalPrice?: number
-  variants?: ProductVariant[]
-  inStock: boolean
-  stock?: number
-  tag?: string
+  key: string;
+  name: string;
+  category: string;
+  subCategory?: string; // ✅ FIX ADDED
+  unit: string;
+  image: string;
+  description: string;
+  price: number;
+  originalPrice?: number;
+  variants?: ProductVariant[];
+  inStock: boolean;
+  stock?: number;
+  tag?: string;
+
+  // ✅ FIX ADDED (you are using these)
+  featured?: boolean;
+  popular?: boolean;
 }
 
 export interface Category {
@@ -32,11 +37,16 @@ export interface Category {
   color: string;
 }
 
-export interface ProductVariant {
-  id: string
-  unit: string
-  price: number
-}
+
+
+export const subCategories: Record<string, string[]> = {
+  vegetables: ["Leafy", "Root", "Exotic"],
+  fruits: ["Citrus", "Berries", "Tropical"],
+  dairy: ["Milk", "Cheese", "Curd"],
+  staples: ["Rice", "Atta", "Dal"],
+  snacks: ["Chips", "Biscuits", "Namkeen"],
+  beverages: ["Cold Drinks", "Juice", "Coffee", "Smoothies"],
+};
 
 export const categories: Category[] = [
   { id: "vegetables", name: "Vegetables", icon: "🥬", color: "bg-green-100" },
@@ -48,13 +58,13 @@ export const categories: Category[] = [
 ];
 
 type PriceInfo = {
-  variants?: ProductVariant[]
-  price?: number
-  originalPrice?: number
-}
+  variants?: ProductVariant[];
+  price?: number;
+  originalPrice?: number;
+};
 
 const getProductData = (key: keyof typeof priceData) => {
-  const priceInfo = priceData[key] as PriceInfo
+  const priceInfo = priceData[key] as PriceInfo;
 
   return {
     price: priceInfo.price ?? priceInfo.variants?.[0]?.price ?? 0,
@@ -62,9 +72,9 @@ const getProductData = (key: keyof typeof priceData) => {
     variants: priceInfo.variants ?? [],
     inStock: inventoryData[key]?.inStock ?? true,
     stock: inventoryData[key]?.stock ?? 0,
-    tag: offerData[key]?.tag
-  }
-}
+    tag: offerData[key]?.tag,
+  };
+};
 
 export const products: Product[] = [
 
@@ -405,9 +415,31 @@ export const products: Product[] = [
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490919/Tangerine-SpotlessFruitsIndia_1024x1024_n3d2oy.png",
   description: "Fresh juicy oranges.",
   ...getProductData("orange")
+},
+
+{
+  id: "coca_cola",
+  key: "coca_cola",
+  name: "Coca Cola",
+  category: "beverages",
+  subCategory: "Cold Drinks", // ✅ ADD THIS
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490919/Tangerine-SpotlessFruitsIndia_1024x1024_n3d2oy.png",
+  description: "Fresh juicy oranges.",
+  ...getProductData("coca_cola")
+},
+
+{
+  id: "kinnaur_apple",
+  key: "kinnaur_apple",
+  name: "Kinnaur Apple",
+  category: "beverages",
+  subCategory: "Juice", // ✅ ADD THIS
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490865/images_6cfaa187-464d-40c5-8510-4c47e4cc9994_201x_cses4h.jpg",
+  description: "Famous Himachal Kinnaur apples.",
+  ...getProductData("kinnaur_apple")
+
 }
 
-].map((product) => ({
-  ...product,
-  id: crypto.randomUUID()
-}));
+];

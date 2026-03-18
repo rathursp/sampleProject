@@ -1,19 +1,29 @@
 import { useSearchParams } from "react-router-dom";
-import { products, categories } from "@/data/products";
+import { products, subCategories } from "@/data/products";
 import { ProductCard } from "@/components/ProductCard";
 import { Button } from "@/components/ui/button";
 import { useMemo } from "react";
+import { CategoryStrip } from "@/components/CategoryStrip";
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+
   const activeCategory = searchParams.get("category") || "all";
+  const activeSubCategory = searchParams.get("sub") || "all";
   const searchQuery = searchParams.get("search") || "";
 
+  // ✅ FILTER LOGIC
   const filtered = useMemo(() => {
     let result = products;
+
     if (activeCategory !== "all") {
       result = result.filter((p) => p.category === activeCategory);
     }
+
+    if (activeSubCategory !== "all") {
+      result = result.filter((p) => p.subCategory === activeSubCategory);
+    }
+
     if (searchQuery) {
       const q = searchQuery.toLowerCase();
       result = result.filter(
@@ -23,60 +33,89 @@ const Products = () => {
           p.category.toLowerCase().includes(q)
       );
     }
-    return result;
-  }, [activeCategory, searchQuery]);
 
+    return result;
+  }, [activeCategory, activeSubCategory, searchQuery]);
+
+  // ✅ CATEGORY CHANGE (reset subcategory)
   const setCategory = (cat: string) => {
+    const params = new URLSearchParams();
+
+    if (cat !== "all") {
+      params.set("category", cat);
+    }
+
+    setSearchParams(params); // resets sub + search
+  };
+
+  // ✅ SUBCATEGORY CHANGE
+  const setSubCategory = (sub: string) => {
     const params = new URLSearchParams(searchParams);
-    if (cat === "all") params.delete("category");
-    else params.set("category", cat);
+
+    if (sub === "all") {
+      params.delete("sub");
+    } else {
+      params.set("sub", sub);
+    }
+
     setSearchParams(params);
   };
 
+  const currentSubs = subCategories[activeCategory] || [];
+
   return (
-    <div className="container px-3 sm:px-4 py-6 md:py-10">
-      <h1 className="mb-2 font-heading text-2xl font-bold md:text-3xl">
-        {searchQuery ? `Results for "${searchQuery}"` : "All Products"}
-      </h1>
-      <p className="mb-6 text-sm text-muted-foreground">
-        {filtered.length} product{filtered.length !== 1 ? "s" : ""} available
-      </p>
+    <>
+      {/* 🔥 CATEGORY STRIP */}
+      <CategoryStrip />
 
-      {/* Category filters */}
-      <div className="mb-6 flex gap-2 overflow-x-auto pb-2">
-        <Button
-          variant={activeCategory === "all" ? "default" : "outline"}
-          size="sm"
-          onClick={() => setCategory("all")}
-        >
-          All
-        </Button>
-        {categories.map((cat) => (
+      {/* 🔥 SUBCATEGORY BAR */}
+      {currentSubs.length > 0 && (
+        <div className="sticky top-[130px] z-30 bg-white/95 backdrop-blur-md border-b px-3 py-2 flex gap-2 overflow-x-auto">
+          
           <Button
-            key={cat.id}
-            variant={activeCategory === cat.id ? "default" : "outline"}
             size="sm"
-            onClick={() => setCategory(cat.id)}
-            className="whitespace-nowrap"
+            variant={activeSubCategory === "all" ? "default" : "outline"}
+            onClick={() => setSubCategory("all")}
+            className="rounded-full whitespace-nowrap"
           >
-            {cat.icon} {cat.name}
+            All
           </Button>
-        ))}
-      </div>
 
-      {filtered.length === 0 ? (
-        <div className="flex flex-col items-center py-16 text-muted-foreground">
-          <p className="text-lg font-medium">No products found</p>
-          <p className="text-sm">Try a different category or search term.</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 lg:gap-4">
-          {filtered.map((product) => (
-            <ProductCard key={product.id} product={product} />
+          {currentSubs.map((sub) => (
+            <Button
+              key={sub}
+              size="sm"
+              variant={activeSubCategory === sub ? "default" : "outline"}
+              onClick={() => setSubCategory(sub)}
+              className="rounded-full whitespace-nowrap"
+            >
+              {sub}
+            </Button>
           ))}
         </div>
       )}
-    </div>
+
+      {/* 🔥 PRODUCTS */}
+      <div className="container px-3 sm:px-4 py-6 md:py-10">
+        
+        <h1 className="mb-2 font-heading text-2xl font-bold md:text-3xl">
+          {searchQuery ? `Results for "${searchQuery}"` : ""}
+        </h1>
+
+        {filtered.length === 0 ? (
+          <div className="flex flex-col items-center py-16 text-muted-foreground">
+            <p className="text-lg font-medium">No products found</p>
+            <p className="text-sm">Try a different category or search term.</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 lg:gap-4">
+            {filtered.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

@@ -47,5 +47,7 @@
   "watermelon": { "price": 35 },
   "fuji_apple": { "price": 220 },
   "kinnaur_apple": { "price": 240 },
-  "orange": { "price": 90 }
+  "orange": { "price": 90 },
+ "coca_cola": { "price": 90 }
+
 }
