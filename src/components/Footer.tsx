@@ -1,6 +1,9 @@
-import { MessageCircle } from "lucide-react";
+import { MessageCircle, Instagram, Linkedin, Mail } from "lucide-react";
+import { useInstallPrompt } from "@/hooks/useInstallPrompt";
 
 export function Footer() {
+  const { installable, installApp } = useInstallPrompt();
+
   return (
     <>
       {/* Popular Searches Section */}
@@ -75,39 +78,97 @@ export function Footer() {
       </div>
 
       {/* Existing Footer */}
-      <footer className="border-t bg-secondary py-8">
-        <div className="container">
-          <div className="flex flex-col items-center gap-4 md:flex-row md:justify-between">
-            
-            <div>
-              <h3 className="font-heading text-xl font-bold text-primary">
-                ISAARA
-              </h3>
+      <footer className="border-t bg-secondary pt-10 pb-6">
+  <div className="container">
 
-              <p className="mt-1 text-sm text-muted-foreground">
-                Fresh groceries delivered to your doorstep
-              </p>
-            </div>
+    {/* TOP SECTION */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
 
-            <div className="flex items-center gap-4 text-sm text-muted-foreground">
-              <a
-                href="https://wa.me/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1 transition-colors hover:text-primary"
-              >
-                <MessageCircle className="h-4 w-4" />
-                WhatsApp
-              </a>
+      {/* LEFT: Branding */}
+      <div>
+        <h3 className="font-heading text-2xl font-bold text-primary">
+          ISAARA
+        </h3>
 
-              <span>•</span>
+        <p className="mt-2 text-sm text-muted-foreground max-w-xs">
+          Fresh groceries delivered to your doorstep with speed, quality, and care.
+        </p>
 
-              <span>© {new Date().getFullYear()} Isaara</span>
-            </div>
-
-          </div>
+        {/* Social Icons */}
+        <div className="flex gap-3 mt-4">
+          <a href="#" className="hover:text-primary transition">
+            <Instagram className="h-5 w-5" />
+          </a>
+          <a href="#" className="hover:text-primary transition">
+            <Linkedin className="h-5 w-5" />
+          </a>
+          <a href="mailto:support@isaara.com" className="hover:text-primary transition">
+            <Mail className="h-5 w-5" />
+          </a>
         </div>
-      </footer>
+      </div>
+
+      {/* MIDDLE: Links */}
+      <div className="grid grid-cols-2 gap-4 text-sm">
+        <div className="space-y-2">
+          <p className="font-medium">Company</p>
+          <p className="hover:text-primary cursor-pointer">About</p>
+          <p className="hover:text-primary cursor-pointer">Careers</p>
+          <p className="hover:text-primary cursor-pointer">Contact</p>
+        </div>
+
+        <div className="space-y-2">
+          <p className="font-medium">Support</p>
+          <p className="hover:text-primary cursor-pointer">Help Center</p>
+          <p className="hover:text-primary cursor-pointer">Privacy Policy</p>
+          <p className="hover:text-primary cursor-pointer">Terms of Use</p>
+        </div>
+      </div>
+
+      {/* RIGHT: App Download */}
+      <div className="flex flex-col gap-3">
+
+        {/* Android / Install */}
+        {installable && (
+          <button
+            onClick={installApp}
+            className="flex items-center justify-center gap-2 border rounded-lg px-4 py-2 hover:bg-muted transition"
+          >
+            📱 Install Isaara App
+          </button>
+        )}
+
+        {/* Optional fallback (APK) */}
+        <a
+          href="/app/isaara.apk"
+          className="flex items-center justify-center gap-2 border rounded-lg px-4 py-2 hover:bg-muted transition"
+        >
+          ⬇️ Download APK
+        </a>
+
+      </div>
+
+    </div>
+
+    {/* BOTTOM BAR */}
+    <div className="border-t pt-4 flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
+
+      <span>© {new Date().getFullYear()} Isaara. All rights reserved.</span>
+
+      <a
+        href="https://wa.me/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-1 hover:text-primary transition"
+      >
+        <MessageCircle className="h-4 w-4" />
+        Chat on WhatsApp
+      </a>
+
+    </div>
+
+  </div>
+</footer>
     </>
   );
 }

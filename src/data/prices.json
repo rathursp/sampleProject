@@ -1,53 +1,260 @@
 {
   "fresh_tomatoes": {
     "variants": [
-      { "id": "250g", "unit": "250g", "price": 20 },
-      { "id": "500g", "unit": "500g", "price": 25 },
-      { "id": "1kg", "unit": "1kg", "price": 48 }
+      { "id": "1kg", "unit": "1kg", "price": 25 }
     ],
-    "originalPrice": 40
+    "originalPrice": 35
   },
-  "green_spinach": { "price": 25 },
+  "green_spinach": { "price": 25,"originalPrice": 30 },
   "onions": {
     "variants": [
-      { "id": "500g", "unit": "500g", "price": 20 },
-      { "id": "1kg", "unit": "1kg", "price": 35 }
-    ],
-    "originalPrice": 45
+      { "id": "1kg", "unit": "1kg", "price": 25 },
+      { "id": "2.5kg", "unit": "2.5kg", "price": 60 },
+      { "id": "5kg", "unit": "5kg", "price": 120 }
+    ]
   },
   "potatoes": {
     "variants": [
-      { "id": "500g", "unit": "500g", "price": 15 },
-      { "id": "1kg", "unit": "1kg", "price": 28 }
+      { "id": "1kg", "unit": "1kg", "price": 11 },
+      { "id": "2.5kg", "unit": "2.5kg", "price": 27 },
+      { "id": "5kg", "unit": "5kg", "price": 55 }
     ]
   },
-  "green_capsicum": { "price": 50 , "originalPrice": 50 },
-  "cauliflower": { "price": 45 },
-  "cabbage": { "price": 35 },
+
+  "potatoes_red": {
+    "variants": [
+      { "id": "1kg", "unit": "1kg", "price": 11 },
+      { "id": "2.5kg", "unit": "2.5kg", "price": 27 },
+      { "id": "5kg", "unit": "5kg", "price": 55 }
+    ]
+  },
+
+  "green_capsicum": { 
+    "variants": [
+      { "id": "250gm", "unit": "250gm", "price": 18 },
+      { "id": "500gm", "unit": "500gm", "price": 35 },
+      { "id": "1kg", "unit": "1kg", "price": 70 }
+    ]
+  },
+  "cauliflower": { "price": 30, "originalPrice": 40},
   "green_peas": { "price": 60 },
-  "green_chilli": { "price": 20 },
-  "garlic": { "price": 55 },
-  "ginger": { "price": 45 },
+  "green_chilli": { 
+    "variants": [
+      { "id": "100gm", "unit": "100gm", "price": 12 },
+      { "id": "250gm", "unit": "250gm", "price": 30 },
+      { "id": "1kg", "unit": "1kg", "price": 120 }
+    ]
+  },
+  "garlic": { 
+    "variants": [
+      { "id": "250gm", "unit": "250gm", "price": 25 },
+      { "id": "500gm", "unit": "500gm", "price": 50 },
+      { "id": "1kg", "unit": "1kg", "price": 100 }
+    ]
+   },
+  "ginger": { 
+    "variants": [
+      { "id": "100gm", "unit": "100gm", "price": 12 },
+      { "id": "250gm", "unit": "250gm", "price": 30 },
+      { "id": "1kg", "unit": "1kg", "price": 100 }
+    ]
+   },
   "beetroot": { "price": 40 },
-  "lemon": { "price": 10 },
-  "bottle_gourd": { "price": 35 },
-  "brinjal": { "price": 45 },
-  "cucumber": { "price": 40 },
+  "lemon": { "price": 12 },
+  "bottle_gourd": { "price": 40 },
+  "brinjal": { "price": 50 },
+  "cucumber": { "price": 50 },
+  "cabbage": { "price": 35 },
+  "karela": { 
+    "variants": [
+      { "id": "250gm", "unit": "250gm", "price": 20 },
+      { "id": "500gm", "unit": "500gm", "price": 35 },
+      { "id": "1kg", "unit": "1kg", "price": 70 }
+    ]
+   },
+  "lady_finger": { "price": 90 },
+  "green_bean": { 
+      "variants": [
+        { "id": "500gm", "unit": "500gm", "price": 25 },
+        { "id": "1kg", "unit": "1kg", "price": 50 }
+      ]
+  },
 
-  "shimla_apple": { "price": 180 },
+  "drumstick": { 
+      "variants": [
+        { "id": "250gm", "unit": "250gm", "price": 20 },
+        { "id": "500gm", "unit": "500gm", "price": 40 },
+        { "id": "1kg", "unit": "1kg", "price": 80 }
+      ]
+  },
+
+  "parwal": { 
+      "variants": [
+        { "id": "250gm", "unit": "250gm", "price": 25 },
+        { "id": "500gm", "unit": "500gm", "price": 50 },
+        { "id": "1kg", "unit": "1kg", "price": 100 }
+      ]
+  },
+
+  "dhaniya": { 
+      "variants": [
+        { "id": "250gm", "unit": "250gm", "price": 13 },
+        { "id": "1kg", "unit": "1kg", "price": 50 }
+      ]
+  },
+
+  "lal_saag": { 
+      "variants": [
+        { "id": "1kg", "unit": "1kg", "price": 40 }
+      ]
+  },  
+  "shimla_apple": {
+     "variants": [
+        { "id": "500gm", "unit": "500gm", "price": 85 },
+        { "id": "1kg", "unit": "1kg", "price": 170 }
+      ],
+    "originalPrice": 180
+  },
   "pineapple": { "price": 80 },
-  "pomegranate": { "price": 160 },
-  "chiniya_banana": { "price": 60 },
-  "kiwi": { "price": 120 },
-  "papaya": { "price": 70 },
-  "singapuri_banana": { "price": 65 },
-  "imported_guava": { "price": 90 },
-  "strawberry": { "price": 110 },
-  "grapes": { "price": 85 },
-  "watermelon": { "price": 35 },
-  "fuji_apple": { "price": 220 },
-  "kinnaur_apple": { "price": 240 },
-  "orange": { "price": 90 },
- "coca_cola": { "price": 90 }
+  "pomegranate": { 
+    "variants": [
+        { "id": "500gm", "unit": "500gm", "price": 100 },
+        { "id": "1kg", "unit": "1kg", "price": 200 }
+      ],
+    "originalPrice": 210
+   },
+  "chiniya_banana": { "price": 70 ,"originalPrice": 80},
+  "kiwi": { "price": 80 ,"originalPrice": 100},
+  "papaya": { "price": 60,"originalPrice": 70 },
+  "singapuri_banana": { "price": 80,"originalPrice": 85 },
+  "imported_guava": { "price": 140,"originalPrice": 150 },
+  "strawberry": { "price": 100 },
+  "grapes": {
+    "variants": [
+        { "id": "500gm", "unit": "500gm", "price": 78 },
+        { "id": "1kg", "unit": "1kg", "price": 155 }
+      ]
+  },
+  "watermelon": { "price": 65,"originalPrice": 85 },
+  "fuji_apple": {
+    "variants": [
+        { "id": "500gm", "unit": "500gm", "price": 140 },
+        { "id": "1kg", "unit": "1kg", "price": 280 }
+      ]
+   },
+  "kinnaur_apple": { "price": 220,"originalPrice": 250 },
+  "orange": { "price": 100,"originalPrice": 110 },
 
+  "Aashirwaad_select_aata": { "price": 335 },
+  "Aashirwaad_multigrains": { "variants": [
+        { "id": "1kg", "unit": "1kg", "price": 68 },
+        { "id": "5kg", "unit": "5kg", "price": 340 }
+      ] },
+  "Aashirwaad_shudh_chakki": {
+    "variants": [
+        { "id": "5kg", "unit": "5kg", "price": 238 },
+        { "id": "10kg", "unit": "10kg", "price": 470 },
+        { "id": "26kg", "unit": "26kg", "price": 900 }
+      ]
+  },
+  "Fortune_Sugar": { "price": 60,"originalPrice": 75 },
+  "Uttam_Sugar": { "price": 60,"originalPrice": 70 },
+  "Loose_sugar": { "price": 48,"originalPrice": 50 },
+  "Pink_salt": {
+    "variants": [
+        { "id": "500gm", "unit": "500gm", "price": 58 },
+        { "id": "1kg", "unit": "1kg", "price": 99 }
+      ]
+   },
+  "Tata_Salt": { "price": 28,"originalPrice": 30 },
+  "Moong_dal": { "price": 120,"originalPrice": 122 },
+  "Arhar_dal": { "price": 140,"originalPrice": 142 },
+  "Urad_dal": { "price": 168,"originalPrice": 170 },
+  "Fortune_kachi_ghani": { "price": 174,"originalPrice": 210 },
+  "Engine_oil": { "price": 195,"originalPrice": 250 },
+  "Dhara_kachi_ghani": { "price": 173,"originalPrice": 230 },
+  "Everest_kitchen_king": {
+    "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 32 },
+        { "id": "100gm", "unit": "100gm", "price": 78 }
+      ]
+  },
+  "Everest_black_pepper": { 
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 86 },
+        { "id": "100gm", "unit": "100gm", "price": 171 }
+      ]
+   },
+  "Everest_kasuri_methi": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 50 },
+        { "id": "100gm", "unit": "100gm", "price": 99 }
+      ]
+   },
+  "Everest_tikhalal": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 35 },
+        { "id": "100gm", "unit": "100gm", "price": 64 }
+      ]
+  },
+  "Everest_coriander": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 29 },
+        { "id": "100gm", "unit": "100gm", "price": 54 }
+      ]
+  },
+  "Everest_chicken": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 45 },
+        { "id": "100gm", "unit": "100gm", "price": 86 }
+      ]
+  },
+  "Everest_turmeric": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 26 },
+        { "id": "100gm", "unit": "100gm", "price": 50 }
+      ]
+  },
+  "Everest_chhole_masala": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 41 },
+        { "id": "100gm", "unit": "100gm", "price": 81 }
+      ]
+  },
+  "Everest_chhat_masala": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 40 },
+        { "id": "100gm", "unit": "100gm", "price": 77 }
+      ]
+  },
+  "Everest_cumin_powder": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 44 },
+        { "id": "100gm", "unit": "100gm", "price": 86 }
+      ]
+  },
+  "Everest_dry_mango": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 41 },
+        { "id": "100gm", "unit": "100gm", "price": 81 }
+      ]
+  },
+  "Everest_garam_masala": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 45 },
+        { "id": "100gm", "unit": "100gm", "price": 73 }
+      ]
+  },
+  "Everest_sabji_masala": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 32 },
+        { "id": "100gm", "unit": "100gm", "price": 71 }
+      ]
+  },
+  "Everest_meet_masala": {
+     "variants": [
+        { "id": "50gm", "unit": "50gm", "price": 44 },
+        { "id": "100gm", "unit": "100gm", "price": 75 }
+      ]
+  }
 }
