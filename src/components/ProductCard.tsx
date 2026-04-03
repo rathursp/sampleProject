@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 
 interface ProductCardProps {
-  product: Product;
+   product: Product;
 }
 
 export function ProductCard({ product }: ProductCardProps) {
