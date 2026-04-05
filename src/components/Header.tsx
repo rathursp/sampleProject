@@ -87,7 +87,7 @@ export function Header() {
           <span className="text-lg font-bold text-primary">ISAARA</span>
           <span className="flex items-center gap-1 text-[10px] text-gray-500">
             <MapPin className="h-3 w-3" />
-            Deliver in 10 mins
+            Sabse sasta aur tez delivery
           </span>
         </Link>
 

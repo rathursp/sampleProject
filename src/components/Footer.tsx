@@ -96,13 +96,13 @@ export function Footer() {
 
         {/* Social Icons */}
         <div className="flex gap-3 mt-4">
-          <a href="#" className="hover:text-primary transition">
+          <a href="https://www.instagram.com/isaara_432/" rel="noopener noreferrer" className="hover:text-pink-500 transition" target="_blank">
             <Instagram className="h-5 w-5" />
           </a>
-          <a href="#" className="hover:text-primary transition">
+          <a href="https://www.linkedin.com/company/isaara/" rel="noopener noreferrer" className="hover:text-primary transition" target="_blank">
             <Linkedin className="h-5 w-5" />
           </a>
-          <a href="mailto:support@isaara.com" className="hover:text-primary transition">
+          <a href="mailto:isaara.patna@gmail.com" className="hover:text-primary transition">
             <Mail className="h-5 w-5" />
           </a>
         </div>
@@ -137,14 +137,6 @@ export function Footer() {
             📱 Install Isaara App
           </button>
         )}
-
-        {/* Optional fallback (APK) */}
-        <a
-          href="/app/isaara.apk"
-          className="flex items-center justify-center gap-2 border rounded-lg px-4 py-2 hover:bg-muted transition"
-        >
-          ⬇️ Download APK
-        </a>
 
       </div>
 

@@ -1,7 +1,21 @@
 {
   "fresh_tomatoes": { "tag": "Best Deal" },
-  "green_peas": { "tag": "Popular" },
-  "chiniya_banana": { "tag": "Popular" },
-  "shimla_apple": { "tag": "Premium" },
-  "pomegranate": { "tag": "Healthy Choice" }
+  "chiniya_banana": { "tag": "Best Deal" },
+  "shimla_apple": { "tag": "Best Deal" },
+  "pomegranate": { "tag": "Best Deal" },
+  "watermelon": { "tag": "Best Deal" },
+  "Engine_oil": { "tag": "Best Deal" },
+  "Singapuri Banana": { "tag": "Popular" },
+  "Makhana": { "tag": "Popular" },
+  "Anjeer": { "tag": "Popular" },
+  "Dhara_kachi_ghani": { "tag": "Popular" },
+  "Amul_ghee": { "tag": "Popular" },
+  "fuji_apple": { "tag": "Healthy Choice" },
+  "imported_guava": { "tag": "Healthy Choice" },
+  "papaya": { "tag": "Healthy Choice" },
+  "kiwi": { "tag": "Healthy Choice" },
+  "Grapes": { "tag": "Healthy Choice" },
+  "pineapple": { "tag": "Healthy Choice" }
+
+
 }

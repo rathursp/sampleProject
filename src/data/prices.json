@@ -5,7 +5,7 @@
     ],
     "originalPrice": 35
   },
-  "green_spinach": { "price": 25,"originalPrice": 30 },
+  "green_spinach": { "price": 45,"originalPrice": 50 },
   "onions": {
     "variants": [
       { "id": "1kg", "unit": "1kg", "price": 25 },
@@ -23,9 +23,9 @@
 
   "potatoes_red": {
     "variants": [
-      { "id": "1kg", "unit": "1kg", "price": 11 },
-      { "id": "2.5kg", "unit": "2.5kg", "price": 27 },
-      { "id": "5kg", "unit": "5kg", "price": 55 }
+      { "id": "1kg", "unit": "1kg", "price": 14 },
+      { "id": "2.5kg", "unit": "2.5kg", "price": 35 },
+      { "id": "5kg", "unit": "5kg", "price": 70 }
     ]
   },
 
@@ -60,9 +60,9 @@
     ]
    },
   "beetroot": { "price": 40 },
-  "lemon": { "price": 12 },
-  "bottle_gourd": { "price": 40 },
-  "brinjal": { "price": 50 },
+  "lemon": { "price": 12, "originalPrice": 15 },
+  "bottle_gourd": { "price": 40, "originalPrice": 45 },
+  "brinjal": { "price": 50, "originalPrice": 60},
   "cucumber": { "price": 50 },
   "cabbage": { "price": 35 },
   "karela": { 
@@ -72,7 +72,12 @@
       { "id": "1kg", "unit": "1kg", "price": 70 }
     ]
    },
-  "lady_finger": { "price": 90 },
+   "lady_finger": { 
+      "variants": [
+        { "id": "500gm", "unit": "500gm", "price": 45 },
+        { "id": "1kg", "unit": "1kg", "price": 90 }
+      ]
+  },
   "green_bean": { 
       "variants": [
         { "id": "500gm", "unit": "500gm", "price": 25 },
@@ -248,13 +253,91 @@
   "Everest_sabji_masala": {
      "variants": [
         { "id": "50gm", "unit": "50gm", "price": 32 },
-        { "id": "100gm", "unit": "100gm", "price": 71 }
+        { "id": "100gm", "unit": "100gm", "price": 7100 }
       ]
   },
   "Everest_meet_masala": {
      "variants": [
         { "id": "50gm", "unit": "50gm", "price": 44 },
         { "id": "100gm", "unit": "100gm", "price": 75 }
+      ]
+  },
+  "Amul_ghee": {
+     "variants": [
+        { "id": "500ml", "unit": "500ml", "price": 310 },
+        { "id": "1L", "unit": "1L", "price": 610 }
+      ]
+  },
+  "Patanjali_ghee": {
+     "variants": [
+        { "id": "200ml", "unit": "200ml", "price": 162 },
+        { "id": "450ml", "unit": "450ml", "price": 390 },
+        { "id": "900ml", "unit": "900ml", "price": 729 }
+      ]
+  },
+  "Sudha_ghee": { "price": 310,"originalPrice": 315 },
+
+  "Peanut": {
+     "variants": [
+        { "id": "250gm", "unit": "250gm", "price": 40 },
+        { "id": "500gm", "unit": "500gm", "price": 78 },
+        { "id": "1kg", "unit": "1kg", "price": 156 }
+      ]
+  },
+  "Pista": { "price": 360,"originalPrice": 445 },
+  "Lion_Arabian_dates": {
+     "variants": [
+        { "id": "250gm", "unit": "250gm", "price": 120 },
+        { "id": "500gm", "unit": "500gm", "price": 200 }
+      ]
+  },
+  "JWEL_Farmer_salted_pista": { "price": 436,"originalPrice": 485 },
+  "Makhana": { "price": 380,"originalPrice": 390 },
+  "Tata_kismiss": {
+     "variants": [
+        { "id": "200gm", "unit": "200gm", "price": 162 },
+        { "id": "500gm", "unit": "500gm", "price": 323 }
+      ]
+  },
+  "Anjeer": { "price": 375,"originalPrice": 500 },  
+  "Almonds": {
+     "variants": [
+        { "id": "100gm", "unit": "100gm", "price": 106 },
+        { "id": "250gm", "unit": "250gm", "price": 263 },
+        { "id": "500gm", "unit": "500gm", "price": 525 }
+      ]
+  },
+  "Tata_walnuts": { "price": 482,"originalPrice": 565 },
+   "Kismis": {
+     "variants": [
+        { "id": "100gm", "unit": "100gm", "price": 56 },
+        { "id": "250gm", "unit": "250gm", "price": 138 },
+        { "id": "500gm", "unit": "500gm", "price": 275 }
+      ]
+  },
+  "Kismis_tukda": {
+     "variants": [
+        { "id": "100gm", "unit": "100gm", "price": 106 },
+        { "id": "250gm", "unit": "250gm", "price": 263 },
+        { "id": "500gm", "unit": "500gm", "price": 525 }
+      ]
+  },
+  "Lion_Qyno_Dates": {
+     "variants": [
+        { "id": "200gm", "unit": "200gm", "price": 162 },
+        { "id": "500gm", "unit": "500gm", "price": 323 }
+      ]
+  },
+  "Tata_sampann_kaju": {
+     "variants": [
+        { "id": "200gm", "unit": "200gm", "price": 162 },
+        { "id": "500gm", "unit": "500gm", "price": 323 }
+      ]
+  },
+  "Tata_sampann_Almonds": {
+     "variants": [
+        { "id": "200gm", "unit": "200gm", "price": 162 },
+        { "id": "500gm", "unit": "500gm", "price": 323 }
       ]
   }
 }

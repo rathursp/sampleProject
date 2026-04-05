@@ -4,7 +4,7 @@
   "onions": { "stock": 60, "inStock": true },
   "potatoes": { "stock": 80, "inStock": true },
   "green_capsicum": { "stock": 35, "inStock": true },
-  "cauliflower": { "stock": 25, "inStock": true },
+  "cauliflower": { "stock": 25, "inStock": false },
   "green_peas": { "stock": 20, "inStock": false },
   "green_chilli": { "stock": 45, "inStock": true },
   "garlic": { "stock": 30, "inStock": true },
@@ -29,5 +29,11 @@
   "watermelon": { "stock": 18, "inStock": true },
   "fuji_apple": { "stock": 22, "inStock": true },
   "kinnaur_apple": { "stock": 20, "inStock": true },
-  "orange": { "stock": 35, "inStock": true }
+  "orange": { "stock": 35, "inStock": true },
+
+  "Patanjali_ghee": { "stock": 20, "inStock": true },
+  "Sudha_ghee": { "stock": 25, "inStock": true },
+  "Amul_ghee": { "stock": 30, "inStock": true },
+  "Moong_dal": { "stock": 30, "inStock": true }
+
 }

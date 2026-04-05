@@ -104,7 +104,7 @@ ${items.map((i)=>`• ${i.product.name} (${i.product.unit}) x${i.quantity} = ₹
 
 🙏 Thank you for ordering from ISAARA`
 );
-  const whatsappUrl = `https://wa.me/918235868992?text=${whatsappMessage}`;
+  const whatsappUrl = `https://wa.me/919801021035?text=${whatsappMessage}`;
 
 
   const tipOptions = [10, 20, 35];

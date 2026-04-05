@@ -42,19 +42,19 @@ export interface Category {
 export const subCategories: Record<string, string[]> = {
   vegetables: ["Daily Essentials","Fresh Veggies","Gourds & Regional Veggies","Leafy Greens", "Spices & Aromatics"],
   fruits: ["Daily","Exotic","Juicy"],
-  dairy: ["Milk", "Cheese", "Curd"],
+  //dairy: ["Milk", "Cheese", "Curd"],
   staples: ["Daily" , "Oils","Whole Spices","MDH", "Everest","Ghee","Dried Fruits"],
-  snacks: ["Chips", "Biscuits", "Namkeen"],
-  beverages: ["Cold Drinks", "Juice", "Coffee", "Smoothies"],
+  //snacks: ["Chips", "Biscuits", "Namkeen"],
+  //beverages: ["Cold Drinks", "Juice", "Coffee", "Smoothies"],
 };
 
 export const categories: Category[] = [
   { id: "vegetables", name: "Vegetables", icon: "🥬", color: "bg-green-100" },
   { id: "fruits", name: "Fruits", icon: "🍎", color: "bg-red-100" },
-  { id: "dairy", name: "Dairy", icon: "🥛", color: "bg-blue-100" },
+  //{ id: "dairy", name: "Dairy", icon: "🥛", color: "bg-blue-100" },
   { id: "staples", name: "Staples", icon: "🌾", color: "bg-yellow-100" },
-  { id: "snacks", name: "Snacks", icon: "🍿", color: "bg-orange-100" },
-  { id: "beverages", name: "Beverages", icon: "🧃", color: "bg-purple-100" },
+  //{ id: "snacks", name: "Snacks", icon: "🍿", color: "bg-orange-100" },
+  //{ id: "beverages", name: "Beverages", icon: "🧃", color: "bg-purple-100" },
 ];
 
 type PriceInfo = {
@@ -136,7 +136,7 @@ export const products: Product[] = [
   category: "vegetables",
   subCategory:"Daily Essentials",
   unit: "1kg",
-  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773465257/potatoes-scaled_apgoq1.jpg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1775360704/1_ewa9kk.png",
   description: "Fresh potatoes, ideal for all types of dishes.",
   ...getProductData("potatoes_red")
 },
@@ -369,7 +369,7 @@ export const products: Product[] = [
   unit: "1kg",
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/Green-Peas_cjbnl1.jpg",
   description: "Sweet and tender green peas.",
-  popular: true,
+  popular: false,
   ...getProductData("green_peas")
 },
 
@@ -621,17 +621,17 @@ export const products: Product[] = [
   description: "Fresh juicy oranges.",
   ...getProductData("Loose_sugar")
 },
-{
-  id: "Pink_salt",
-  key: "Pink_salt",
-  name: "Pink Salt",
-  category: "staples",
-  subCategory: "Daily",
-  unit: "1kg",
-  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490919/Tangerine-SpotlessFruitsIndia_1024x1024_n3d2oy.png",
-  description: "Fresh juicy oranges.",
-  ...getProductData("Pink_salt")
-},
+// {
+//   id: "Pink_salt",
+//   key: "Pink_salt",
+//   name: "Pink Salt",
+//   category: "staples",
+//   subCategory: "Daily",
+//   unit: "1kg",
+//   image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1773490919/Tangerine-SpotlessFruitsIndia_1024x1024_n3d2oy.png",
+//   description: "Fresh juicy oranges.",
+//   ...getProductData("Pink_salt")
+// },
 {
   id: "Tata_Salt",
   key: "Tata_Salt",
@@ -683,7 +683,7 @@ export const products: Product[] = [
   category: "staples",
   subCategory: "Oils",
   unit: "1kg",
-  image: "https://res.cloudinary.com/dkdqid09e/image/upload/276756_11-fortune-fortune-premium-kachi-ghani-pure-mustard-oil_ucgs4d.png",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1775359661/71wVU7pgwAL_flgluj.jpg",
   description: "Fresh juicy oranges.",
   ...getProductData("Fortune_kachi_ghani")
 },
@@ -705,7 +705,7 @@ export const products: Product[] = [
   category: "staples",
   subCategory: "Oils",
   unit: "1kg",
-  image: "https://res.cloudinary.com/dkdqid09e/image/upload/image_xqvgup.png",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1775359730/30003360_7-dhara-oil-mustard-kachi-ghani_spiumq.png",
   description: "Fresh juicy oranges.",
   ...getProductData("Dhara_kachi_ghani")
 },
@@ -865,6 +865,196 @@ export const products: Product[] = [
   image: "https://res.cloudinary.com/dkdqid09e/image/upload/EVEREST-MEAT-MASALA-50GM_dwrymi.jpg",
   description: "Fresh juicy oranges.",
   ...getProductData("Everest_meet_masala")
+},
+{
+  id: "Amul_ghee",
+  key: "Amul_ghee",
+  name: "Amul Ghee",
+  category: "staples",
+  subCategory: "Ghee",
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/s-l640_018eed94-a502-4db7-88b4-6b854b75f987_grcj2x.jpg",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Amul_ghee")
+},
+{
+  id: "Sudha_ghee",
+  key: "Sudha_ghee",
+  name: "Sudha Ghee",
+  category: "staples",
+  subCategory: "Ghee",
+  unit: "500ml",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/special-ghee_hgzfby.png",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Sudha_ghee")
+},
+{
+  id: "Patanjali_ghee",
+  key: "Patanjali_ghee",
+  name: "Patanjali Ghee",
+  category: "staples",
+  subCategory: "Ghee",
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/40009511_13-patanjali-cow-ghee_vjnkru.png",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Patanjali_ghee")
 }
+
+,
+{
+  id: "Peanut",
+  key: "Peanut",
+  name: "Moongfali Daana (Kachha Badam)",
+  category: "staples",
+  subCategory: "Dried Fruits",
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/1_ave9zq.png",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Peanut")
+},
+{
+  id: "Pista",
+  key: "Pista",
+  name: "Salted Pista",
+  category: "staples",
+  subCategory: "Dried Fruits",
+  unit: "250gm",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1775224689/pistachio-salted-irani_dweog8.jpg",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Pista")
+},
+{
+  id: "Lion_Arabian_dates",
+  key: "Lion_Arabian_dates",
+  name: "Lion Arabian Dates",
+  category: "staples",
+  subCategory: "Dried Fruits",
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1775224726/image_ftarxc.png",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Lion_Arabian_dates")
+},
+// {
+//   id: "JWEL_Farmer_salted_pista",
+//   key: "JWEL_Farmer_salted_pista",
+//   name: "JWEL Farmer Salted Pista",
+//   category: "staples",
+//   subCategory: "Dried Fruits",
+//   unit: "200gm",
+//   image: "https://res.cloudinary.com/dkdqid09e/image/upload/40009511_13-patanjali-cow-ghee_vjnkru.png",
+//   description: "Fresh juicy oranges.",
+//   ...getProductData("JWEL_Farmer_salted_pista")
+// },
+{
+  id: "Makhana",
+  key: "Makhana",
+  name: "Makhana",
+  category: "staples",
+  subCategory: "Dried Fruits",
+  unit: "250gm",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1775224819/Phool-Makhana_dkfyoh.jpg",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Makhana")
+},
+{
+  id: "Tata_kismiss",
+  key: "Tata_kismiss",
+  name: "Tata Sampann Premium Kismiss",
+  category: "staples",
+  subCategory: "Dried Fruits",
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1775224848/61JL78FJWOL._AC_UF894_1000_QL80__s8jff6.jpg",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Tata_kismiss")
+},
+{
+  id: "Anjeer",
+  key: "Anjeer",
+  name: "Anjeer",
+  category: "staples",
+  subCategory: "Dried Fruits",
+  unit: "250gm",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/v1775224872/Anjeer-Small_p7ghph.jpg",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Anjeer")
+},
+{
+  id: "Almonds",
+  key: "Almonds",
+  name: "Almonds Whole",
+  category: "staples",
+  subCategory: "Dried Fruits",
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/almond-1000x1000_a811a535-53bb-4715-ac02-27074e07646e_ovflsy.jpg",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Almonds")
+},
+{
+  id: "Tata_walnuts",
+  key: "Tata_walnuts",
+  name: "Tata Sampann Walnuts",
+  category: "staples",
+  subCategory: "Dried Fruits",
+  unit: "200gm",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/71wnuZ37mTL._SL1500-removebg-preview_jnyv4a.png",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Tata_walnuts")
+},
+{
+  id: "Kismis",
+  key: "Kismis",
+  name: "Kismis",
+  category: "staples",
+  subCategory: "Dried Fruits",
+  unit: "1kg",
+  image: "https://res.cloudinary.com/dkdqid09e/image/upload/Kismis-40_zplhxp.jpg",
+  description: "Fresh juicy oranges.",
+  ...getProductData("Kismis")
+// },
+// {
+//   id: "Kismis_tukda",
+//   key: "Kismis_tukda",
+//   name: "Kismis Tukda",
+//   category: "staples",
+//   subCategory: "Dried Fruits",
+//   unit: "1kg",
+//   image: "https://res.cloudinary.com/dkdqid09e/image/upload/40009511_13-patanjali-cow-ghee_vjnkru.png",
+//   description: "Fresh juicy oranges.",
+//   ...getProductData("Kismis_tukda")
+// },
+// {
+//   id: "Lion Qyno Dates",
+//   key: "Lion_Qyno_Dates",
+//   name: "Lion Qyno Dates",
+//   category: "staples",
+//   subCategory: "Dried Fruits",
+//   unit: "1kg",
+//   image: "https://res.cloudinary.com/dkdqid09e/image/upload/40009511_13-patanjali-cow-ghee_vjnkru.png",
+//   description: "Fresh juicy oranges.",
+//   ...getProductData("Lion_Qyno_Dates")
+// },
+// {
+//   id: "Tata_sampann_kaju",
+//   key: "Tata_sampann_kaju",
+//   name: "Tata Sampann Premium Kaju",
+//   category: "staples",
+//   subCategory: "Dried Fruits",
+//   unit: "1kg",
+//   image: "https://res.cloudinary.com/dkdqid09e/image/upload/40009511_13-patanjali-cow-ghee_vjnkru.png",
+//   description: "Fresh juicy oranges.",
+//   ...getProductData("Tata_sampann_kaju")
+// },
+// {
+//   id: "Tata_sampann_Almonds",
+//   key: "Tata_sampann_Almonds",
+//   name: "Tata Sampann Premium Almonds",
+//   category: "staples",
+//   subCategory: "Dried Fruits",
+//   unit: "1kg",
+//   image: "https://res.cloudinary.com/dkdqid09e/image/upload/40009511_13-patanjali-cow-ghee_vjnkru.png",
+//   description: "Fresh juicy oranges.",
+//   ...getProductData("Tata_sampann_Almonds")
+}
+
 
 ];
