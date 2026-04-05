@@ -17,8 +17,8 @@ import {
   Sparkles,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { toast } from "sonner";
+import { useState, useEffect } from "react";
 
 const deliverySlots = [
   "Today 2–4 PM",
@@ -39,6 +39,11 @@ const Checkout = () => {
   const [pincode, setPincode] = useState("");
   const [city, setCity] = useState("");
   
+   // scroll to top on mount
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   if (items.length === 0) {
     return (
       <div className="container flex flex-col items-center gap-4 py-20">

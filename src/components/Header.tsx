@@ -40,6 +40,7 @@ export function Header() {
   const { totalItems, setIsCartOpen } = useCart();
   const { user, isLoggedIn, login, logout } = useAuth();
   const [searchQuery, setSearchQuery] = useState("");
+  const [isSheetOpen, setIsSheetOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleSearch = (e: React.FormEvent) => {
@@ -57,7 +58,7 @@ export function Header() {
       <div className="container flex h-14 items-center justify-between gap-3 md:h-16">
 
         {/* MOBILE MENU */}
-        <Sheet>
+        <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="md:hidden">
               <Menu className="h-5 w-5" />
@@ -66,7 +67,11 @@ export function Header() {
 
           <SheetContent side="left" className="w-64">
             <div className="mt-8 flex flex-col gap-4">
-              <Link to="/" className="text-2xl font-bold text-primary">
+              <Link
+                to="/"
+                className="text-2xl font-bold text-primary"
+                onClick={() => setIsSheetOpen(false)}
+              >
                 ISAARA
               </Link>
               {navLinks.map((link) => (
@@ -74,6 +79,7 @@ export function Header() {
                   key={link.to}
                   to={link.to}
                   className="text-lg text-foreground/80 hover:text-primary"
+                  onClick={() => setIsSheetOpen(false)}
                 >
                   {link.label}
                 </Link>
