@@ -1,3 +1,4 @@
+// ...existing code...
 import { useParams, Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Minus, Plus, ChevronRight } from "lucide-react";
@@ -7,10 +8,15 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { FrequentlyBought } from "@/components/FrequentlyBought";
+import { useTrackProductView } from "@/hooks/useTrackProductView";
+
 
 export default function ProductDetail() {
   const { id } = useParams<{ id: string }>();
-  const product = products.find((p) => p.id === id);
+
+  // match id as string to avoid type mismatch (preserve original UI)
+  const product = products.find((p) => String(p.id) === String(id));
+
   const { addToCart, items, updateQuantity } = useCart();
   const [selectedVariantIdx, setSelectedVariantIdx] = useState(0);
   const location = useLocation();
@@ -22,6 +28,8 @@ export default function ProductDetail() {
       </div>
     );
   }
+
+  useTrackProductView(id);
 
   const variants = product.variants;
   const activeVariant = variants?.[selectedVariantIdx];
@@ -37,9 +45,10 @@ export default function ProductDetail() {
       )
     : 0;
 
+  // ensure id comparison uses strings to match products and cart items reliably
   const cartItem = items.find(
     (i) =>
-      i.product.id === id &&
+      String(i.product.id) === String(product.id) &&
       (variantId ? i.selectedVariantId === variantId : !i.selectedVariantId)
   );
 
@@ -48,11 +57,8 @@ export default function ProductDetail() {
   };
 
   useEffect(() => {
-    document.documentElement.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "instant",
-    });
+    // keep original UI scroll behavior but use window.scrollTo for compatibility
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [location.pathname]);
 
   return (
@@ -262,4 +268,4 @@ export default function ProductDetail() {
 
     </section>
   );
-} 
+}
